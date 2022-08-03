@@ -90,6 +90,12 @@ func main() {
 		case "Христово":
 			fmt.Print("Christovo")
 			continue
+		case "Христовой":
+			fmt.Print("Christovo{\\y}")
+			continue
+		case "нехристю":
+			fmt.Print("nechrist{\\i}u")
+			continue
 		case "Дель":
 			fmt.Print("Del")
 			continue
@@ -101,6 +107,27 @@ func main() {
 			continue
 		case "специалист":
 			fmt.Print("specialist")
+			continue
+		case "аист":
+			fmt.Print("aist")
+			continue
+		case "капюшон":
+			fmt.Print("capuchon")
+			continue
+		case "наизнанку":
+			fmt.Print("naiznanku")
+			continue
+		case "происходит":
+			fmt.Print("proishodit")
+			continue
+		case "заинтересовали":
+			fmt.Print("zainteresovali")
+			continue
+		case "кацеров":
+			fmt.Print("katzerov")
+			continue
+		case "несущаяся":
+			fmt.Print("nesux̨a{\\y}asa")
 			continue
 		case "Воистину":
 			fmt.Print("Voistinu")
