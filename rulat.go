@@ -37,6 +37,38 @@ func main() {
 \setmainfont{Linux Libertine O}
 \begin{document}
 
+\newcommand{\e}{ë}
+%\newcommand{\e}{e}
+%\newcommand{\e}{é}
+%\newcommand{\e}{ó}
+
+\renewcommand{\i}{ı}
+%\renewcommand{\i}{i}
+
+\newcommand{\yi}{yı}
+%\newcommand{\yi}{yi}
+%\newcommand{\yi}{ǝ}
+
+\newcommand{\ia}{ıa}
+%\newcommand{\ia}{ia}
+%\newcommand{\ia}{ía}
+%\newcommand{\ia}{á}
+
+\newcommand{\iu}{ıu}
+%\newcommand{\iu}{iu}
+%\newcommand{\iu}{ıo}
+%\newcommand{\iu}{io}
+%\newcommand{\iu}{ío}
+%\newcommand{\iu}{íu}
+%\newcommand{\iu}{ú}
+
+\newcommand{\y}{y̆}
+%\newcommand{\y}{y}
+
+\newcommand{\Y}{Y̆}
+%\newcommand{\Y}{Y}
+
+
 `)
 
 	for _, item := range items {
@@ -94,9 +126,9 @@ func main() {
 			case "Д":
 				fmt.Print("D")
 			case "Е":
-				fmt.Print("Y̆e")
+				fmt.Print("{\\Y}e")
 			case "Ё":
-				fmt.Print("Y̆o")
+				fmt.Print("{\\Y}o")
 			case "Ж":
 				fmt.Print("J")
 			case "З":
@@ -146,9 +178,9 @@ func main() {
 			case "Э":
 				fmt.Print("E")
 			case "Ю":
-				fmt.Print("Y̆u")
+				fmt.Print("{\\Y}u")
 			case "Я":
-				fmt.Print("Y̆a")
+				fmt.Print("{\\Y}a")
 			case "а":
 				fmt.Print("a")
 			case "б":
@@ -165,18 +197,18 @@ func main() {
 				fmt.Print("d")
 			case "е":
 				if p == "" || isVowel(p) {
-					fmt.Print("y̆e")
+					fmt.Print("{\\y}e")
 				} else {
 					fmt.Print("e")
 				}
 			case "ё":
 				if p == "" || isVowel(p) {
-					fmt.Print("y̆o")
+					fmt.Print("{\\y}o")
 				} else {
 					if isFrik(p) {
 						fmt.Print("o")
 					} else {
-						fmt.Print("ë")
+						fmt.Print("{\\e}")
 					}
 				}
 			case "ж":
@@ -185,12 +217,12 @@ func main() {
 				fmt.Print("z")
 			case "и":
 				if isVowel(p) {
-					fmt.Print("y̆i")
+					fmt.Print("{\\y}i")
 				} else {
 					fmt.Print("i")
 				}
 			case "й":
-				fmt.Print("y̆")
+				fmt.Print("{\\y}")
 			case "к":
 				fmt.Print("k")
 			case "л":
@@ -232,17 +264,17 @@ func main() {
 				if p == "ц" {
 					fmt.Print("i")
 				} else {
-					fmt.Print("yı")
+					fmt.Print("{\\yi}")
 				}
 			case "ъ", "ь":
 				if n == "ю" {
-					fmt.Print("y̆u")
+					fmt.Print("{\\y}u")
 					i += 1
 				} else if n == "я" {
-					fmt.Print("y̆a")
+					fmt.Print("{\\y}a")
 					i += 1
 				} else if n == "ё" {
-					fmt.Print("y̆o")
+					fmt.Print("{\\y}o")
 					i += 1
 				} else if i == wl-3 && p == "т" && n == "с" && string(word[wl-1]) == "я" {
 				} else if isFrik(p) && n == "" {
@@ -253,15 +285,15 @@ func main() {
 				fmt.Print("e")
 			case "ю":
 				if p == "" || isVowel(p) {
-					fmt.Print("y̆u")
+					fmt.Print("{\\y}u")
 				} else {
-					fmt.Print("ıu")
+					fmt.Print("{\\iu}")
 				}
 			case "я":
 				if p == "" || isVowel(p) {
-					fmt.Print("y̆a")
+					fmt.Print("{\\y}a")
 				} else {
-					fmt.Print("ıa")
+					fmt.Print("{\\ia}")
 				}
 			default:
 				log.Fatalf("not a word: *%s*", c)
