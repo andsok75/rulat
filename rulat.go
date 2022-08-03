@@ -54,9 +54,9 @@ func main() {
 %\newcommand{\ia}{ía}
 %\newcommand{\ia}{á}
 
-\newcommand{\iu}{ıu}
+\newcommand{\iu}{ıo}
+%\newcommand{\iu}{ıu}
 %\newcommand{\iu}{iu}
-%\newcommand{\iu}{ıo}
 %\newcommand{\iu}{io}
 %\newcommand{\iu}{ío}
 %\newcommand{\iu}{íu}
@@ -68,6 +68,43 @@ func main() {
 \newcommand{\Y}{Y̆}
 %\newcommand{\Y}{Y}
 
+\newcommand{\C}{C}
+\renewcommand{\c}{c}
+
+\newcommand{\X}{X̨}
+\newcommand{\x}{x̨}
+\newcommand{\Q}{Q}
+\newcommand{\q}{q}
+
+% % ogonek
+% \newcommand{\X}{X̨}
+% \newcommand{\x}{x̨}
+% \newcommand{\Q}{C̨}
+% \newcommand{\q}{c̨}
+% 
+% % retroflex hook
+% \newcommand{\X}{X̢}
+% \newcommand{\x}{x̢}
+% \newcommand{\Q}{C̢}
+% \renewcommand{\q}{c̢}
+% 
+% % cedilla
+% \newcommand{\X}{X̧}
+% \newcommand{\x}{x̧}
+% \newcommand{\Q}{Ç}
+% \renewcommand{\q}{ç}
+% 
+% % hook
+% \newcommand{\X}{X̡}
+% \newcommand{\x}{x̡}
+% \newcommand{\Q}{C̡}
+% \renewcommand{\q}{c̡}
+% 
+% % acute accent
+% \newcommand{\X}{X̗}
+% \newcommand{\x}{x̗}
+% \newcommand{\Q}{C̗}
+% \renewcommand{\q}{c̗}
 
 `)
 
@@ -106,7 +143,7 @@ func main() {
 			fmt.Print("mnogo")
 			continue
 		case "специалист":
-			fmt.Print("specialist")
+			fmt.Print("spe{\\q}ialist")
 			continue
 		case "аист":
 			fmt.Print("aist")
@@ -123,11 +160,20 @@ func main() {
 		case "заинтересовали":
 			fmt.Print("zainteresovali")
 			continue
+		case "заинтересованно":
+			fmt.Print("zainteresovanno")
+			continue
 		case "кацеров":
 			fmt.Print("katzerov")
 			continue
 		case "несущаяся":
-			fmt.Print("nesux̨a{\\y}asa")
+			fmt.Print("nesu{\\x}a{\\y}asa")
+			continue
+		case "миф":
+			fmt.Print("myth")
+			continue
+		case "тифа":
+			fmt.Print("typha")
 			continue
 		case "Воистину":
 			fmt.Print("Voistinu")
@@ -181,7 +227,7 @@ func main() {
 			case "И":
 				fmt.Print("I")
 			case "Й":
-				fmt.Print("Y̆")
+				fmt.Print("{\\Y}")
 			case "К":
 				fmt.Print("K")
 			case "Л":
@@ -207,13 +253,13 @@ func main() {
 			case "Х":
 				fmt.Print("H")
 			case "Ц":
-				fmt.Print("Q")
+				fmt.Print("{\\Q}")
 			case "Ч":
-				fmt.Print("C")
+				fmt.Print("{\\C}")
 			case "Ш":
 				fmt.Print("X")
 			case "Щ":
-				fmt.Print("X̨")
+				fmt.Print("{\\X}")
 			case "Ъ":
 				fmt.Print("Y")
 			case "Ы":
@@ -298,13 +344,13 @@ func main() {
 			case "х":
 				fmt.Print("h")
 			case "ц":
-				fmt.Print("q")
+				fmt.Print("{\\q}")
 			case "ч":
-				fmt.Print("c")
+				fmt.Print("{\\c}")
 			case "ш":
 				fmt.Print("x")
 			case "щ":
-				fmt.Print("x̨")
+				fmt.Print("{\\x}")
 			case "ы":
 				if p == "ц" {
 					fmt.Print("i")
