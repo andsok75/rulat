@@ -96,6 +96,18 @@ func main() {
 		case "много":
 			fmt.Print("mnogo")
 			continue
+		case "Воистину":
+			fmt.Print("Voistinu")
+			continue
+		case "Людвиг":
+			fmt.Print("Ludwig")
+			continue
+		case "Лезерберг":
+			fmt.Print("Leserberg")
+			continue
+		case "Фирвальдене":
+			fmt.Print("Firvaldene")
+			continue
 		default:
 		}
 		log.Printf("processing *%s*", item.content)
@@ -238,7 +250,7 @@ func main() {
 			case "р":
 				fmt.Print("r")
 			case "с":
-				if i == wl-2 && n == "я" && (p == "л" || p == "т" || p == "б" || p == "ь") {
+				if i == wl-2 && n == "я" && (p == "л" || p == "м" || p == "т" || p == "б" || p == "ь") {
 					fmt.Print("sa")
 					i += 1
 				} else {
@@ -276,7 +288,7 @@ func main() {
 				} else if n == "ё" {
 					fmt.Print("{\\y}o")
 					i += 1
-				} else if i == wl-3 && p == "т" && n == "с" && string(word[wl-1]) == "я" {
+				} else if i == wl-3 && (p == "т" || p == "ш") && n == "с" && string(word[wl-1]) == "я" {
 				} else if isFrik(p) && n == "" {
 				} else {
 					fmt.Print("y")
