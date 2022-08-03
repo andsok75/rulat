@@ -87,6 +87,9 @@ func main() {
 		case "Христа":
 			fmt.Print("Christa")
 			continue
+		case "Христово":
+			fmt.Print("Christovo")
+			continue
 		case "Дель":
 			fmt.Print("Del")
 			continue
@@ -95,6 +98,9 @@ func main() {
 			continue
 		case "много":
 			fmt.Print("mnogo")
+			continue
+		case "специалист":
+			fmt.Print("specialist")
 			continue
 		case "Воистину":
 			fmt.Print("Voistinu")
@@ -200,7 +206,7 @@ func main() {
 			case "в":
 				fmt.Print("v")
 			case "г":
-				if i == wl-2 && n == "о" && (p == "о" || p == "е") {
+				if i == wl-2 && n == "о" && (p == "о" || p == "е" || p == "Е") {
 					fmt.Print("v")
 				} else {
 					fmt.Print("g")
