@@ -6,13 +6,18 @@ import (
 	"log"
 )
 
+type Item struct {
+	isWord  bool
+	content string
+}
+
 func main() {
 	content, err := ioutil.ReadFile("./text")
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	items := []string{}
+	items := []Item{}
 	word := ""
 	for _, r := range string(content) {
 		c := string(r)
@@ -21,10 +26,10 @@ func main() {
 			continue
 		}
 		if word != "" {
-			items = append(items, word)
+			items = append(items, Item{true, word})
 			word = ""
 		}
-		items = append(items, c)
+		items = append(items, Item{false, c})
 	}
 
 	fmt.Print(`\documentclass[10pt]{book}
@@ -34,144 +39,234 @@ func main() {
 
 `)
 
-	p := ""
-	for _, r := range string(content) {
-		c := string(r)
-		switch c {
-		case "А":
-			fmt.Print("A")
-		case "Б":
-			fmt.Print("B")
-		case "В":
-			fmt.Print("V")
-		case "Г":
-			fmt.Print("G")
-		case "Д":
-			fmt.Print("D")
-		case "Е":
-			fmt.Print("E")
-		case "Ж":
-			fmt.Print("J")
-		case "З":
-			fmt.Print("Z")
-		case "И":
-			fmt.Print("I")
-		case "К":
-			fmt.Print("K")
-		case "Л":
-			fmt.Print("L")
-		case "М":
-			fmt.Print("M")
-		case "Н":
-			fmt.Print("N")
-		case "О":
-			fmt.Print("O")
-		case "П":
-			fmt.Print("P")
-		case "Р":
-			fmt.Print("R")
-		case "С":
-			fmt.Print("S")
-		case "Т":
-			fmt.Print("T")
-		case "У":
-			fmt.Print("U")
-		case "Ф":
-			fmt.Print("F")
-		case "Х":
-			fmt.Print("H")
-		case "Ц":
-			fmt.Print("Q")
-		case "Ч":
-			fmt.Print("C")
-		case "Ш":
-			fmt.Print("X")
-		case "Э":
-			fmt.Print("E")
-		case "Я":
-			fmt.Print("Ya")
-		case "а":
-			fmt.Print("a")
-		case "б":
-			fmt.Print("b")
-		case "в":
-			fmt.Print("v")
-		case "г":
-			fmt.Print("g")
-		case "д":
-			fmt.Print("d")
-		case "е":
-			if p == " " || isVowel(p) {
-				fmt.Print("y̆e")
-			} else {
-				fmt.Print("e")
+	for _, item := range items {
+		if !item.isWord {
+			switch item.content {
+			case "«":
+				fmt.Print("``")
+			case "»":
+				fmt.Print("\"")
+			default:
+				fmt.Print(item.content)
 			}
-		case "ж":
-			fmt.Print("j")
-		case "з":
-			fmt.Print("z")
-		case "и":
-			if isVowel(p) {
-				fmt.Print("y̆i")
-			} else {
-				fmt.Print("i")
-			}
-		case "й":
-			fmt.Print("y̆")
-		case "к":
-			fmt.Print("k")
-		case "л":
-			fmt.Print("l")
-		case "м":
-			fmt.Print("m")
-		case "н":
-			fmt.Print("n")
-		case "о":
-			fmt.Print("o")
-		case "п":
-			fmt.Print("p")
-		case "р":
-			fmt.Print("r")
-		case "с":
-			fmt.Print("s")
-		case "т":
-			fmt.Print("t")
-		case "у":
-			fmt.Print("u")
-		case "ф":
-			fmt.Print("f")
-		case "х":
-			fmt.Print("h")
-		case "ц":
-			fmt.Print("q")
-		case "ч":
-			fmt.Print("c")
-		case "ш":
-			fmt.Print("x")
-		case "щ":
-			fmt.Print("x̨")
-		case "ы":
-			fmt.Print("yı")
-		case "ь":
-			fmt.Print("y")
-		case "э":
-			fmt.Print("e")
-		case "ю":
-			if p == " " || isVowel(p) {
-				fmt.Print("y̆u")
-			} else {
-				fmt.Print("ıu")
-			}
-		case "я":
-			if p == " " || isVowel(p) {
-				fmt.Print("y̆a")
-			} else {
-				fmt.Print("ıa")
-			}
-		default:
-			fmt.Print(c)
+			continue
 		}
-		p = c
+		switch item.content {
+		case "Христа":
+			fmt.Print("Christa")
+			continue
+		case "Дель":
+			fmt.Print("Del")
+			continue
+		case "немного":
+			fmt.Print("nemnogo")
+			continue
+		case "много":
+			fmt.Print("mnogo")
+			continue
+		default:
+		}
+		log.Printf("processing *%s*", item.content)
+		word := []rune(item.content)
+		wl := len(word)
+		p := ""
+		n := ""
+		for i := 0; i < wl; i++ {
+			c := string(word[i])
+			if i > 0 {
+				p = string(word[i-1])
+			}
+			if i == wl-1 {
+				n = ""
+			}
+			if i < wl-1 {
+				n = string(word[i+1])
+			}
+			switch c {
+			case "А":
+				fmt.Print("A")
+			case "Б":
+				fmt.Print("B")
+			case "В":
+				fmt.Print("V")
+			case "Г":
+				fmt.Print("G")
+			case "Д":
+				fmt.Print("D")
+			case "Е":
+				fmt.Print("Y̆e")
+			case "Ё":
+				fmt.Print("Y̆o")
+			case "Ж":
+				fmt.Print("J")
+			case "З":
+				fmt.Print("Z")
+			case "И":
+				fmt.Print("I")
+			case "Й":
+				fmt.Print("Y̆")
+			case "К":
+				fmt.Print("K")
+			case "Л":
+				fmt.Print("L")
+			case "М":
+				fmt.Print("M")
+			case "Н":
+				fmt.Print("N")
+			case "О":
+				fmt.Print("O")
+			case "П":
+				fmt.Print("P")
+			case "Р":
+				fmt.Print("R")
+			case "С":
+				fmt.Print("S")
+			case "Т":
+				fmt.Print("T")
+			case "У":
+				fmt.Print("U")
+			case "Ф":
+				fmt.Print("F")
+			case "Х":
+				fmt.Print("H")
+			case "Ц":
+				fmt.Print("Q")
+			case "Ч":
+				fmt.Print("C")
+			case "Ш":
+				fmt.Print("X")
+			case "Щ":
+				fmt.Print("X̨")
+			case "Ъ":
+				fmt.Print("Y")
+			case "Ы":
+				fmt.Print("YI")
+			case "Ь":
+				fmt.Print("Y")
+			case "Э":
+				fmt.Print("E")
+			case "Ю":
+				fmt.Print("Y̆u")
+			case "Я":
+				fmt.Print("Y̆a")
+			case "а":
+				fmt.Print("a")
+			case "б":
+				fmt.Print("b")
+			case "в":
+				fmt.Print("v")
+			case "г":
+				if i == wl-2 && n == "о" && (p == "о" || p == "е") {
+					fmt.Print("v")
+				} else {
+					fmt.Print("g")
+				}
+			case "д":
+				fmt.Print("d")
+			case "е":
+				if p == "" || isVowel(p) {
+					fmt.Print("y̆e")
+				} else {
+					fmt.Print("e")
+				}
+			case "ё":
+				if p == "" || isVowel(p) {
+					fmt.Print("y̆o")
+				} else {
+					if isFrik(p) {
+						fmt.Print("o")
+					} else {
+						fmt.Print("ë")
+					}
+				}
+			case "ж":
+				fmt.Print("j")
+			case "з":
+				fmt.Print("z")
+			case "и":
+				if isVowel(p) {
+					fmt.Print("y̆i")
+				} else {
+					fmt.Print("i")
+				}
+			case "й":
+				fmt.Print("y̆")
+			case "к":
+				fmt.Print("k")
+			case "л":
+				fmt.Print("l")
+			case "м":
+				fmt.Print("m")
+			case "н":
+				fmt.Print("n")
+			case "о":
+				fmt.Print("o")
+			case "п":
+				fmt.Print("p")
+			case "р":
+				fmt.Print("r")
+			case "с":
+				if i == wl-2 && n == "я" && (p == "л" || p == "т" || p == "б" || p == "ь") {
+					fmt.Print("sa")
+					i += 1
+				} else {
+					fmt.Print("s")
+				}
+			case "т":
+				fmt.Print("t")
+			case "у":
+				fmt.Print("u")
+			case "ф":
+				fmt.Print("f")
+			case "х":
+				fmt.Print("h")
+			case "ц":
+				fmt.Print("q")
+			case "ч":
+				fmt.Print("c")
+			case "ш":
+				fmt.Print("x")
+			case "щ":
+				fmt.Print("x̨")
+			case "ы":
+				if p == "ц" {
+					fmt.Print("i")
+				} else {
+					fmt.Print("yı")
+				}
+			case "ъ", "ь":
+				if n == "ю" {
+					fmt.Print("y̆u")
+					i += 1
+				} else if n == "я" {
+					fmt.Print("y̆a")
+					i += 1
+				} else if n == "ё" {
+					fmt.Print("y̆o")
+					i += 1
+				} else if i == wl-3 && p == "т" && n == "с" && string(word[wl-1]) == "я" {
+				} else if isFrik(p) && n == "" {
+				} else {
+					fmt.Print("y")
+				}
+			case "э":
+				fmt.Print("e")
+			case "ю":
+				if p == "" || isVowel(p) {
+					fmt.Print("y̆u")
+				} else {
+					fmt.Print("ıu")
+				}
+			case "я":
+				if p == "" || isVowel(p) {
+					fmt.Print("y̆a")
+				} else {
+					fmt.Print("ıa")
+				}
+			default:
+				log.Fatalf("not a word: *%s*", c)
+			}
+		}
 	}
 
 	fmt.Print(`
@@ -189,9 +284,20 @@ func isVowel(c string) bool {
 
 func isWord(c string) bool {
 	switch c {
-	case "А", "Б", "В", "Г", "Д", "Е", "Ж", "З", "И", "К", "Л", "М", "Н", "О", "П", "Р", "С", "Т", "У", "Ф", "Х", "Ц", "Ч", "Ш", "Э", "Я":
+	case "А", "Б", "В", "Г", "Д", "Е", "Ё", "Ж", "З", "И", "Й", "К", "Л", "М", "Н", "О", "П", "Р", "С", "Т", "У", "Ф", "Х", "Ц", "Ч", "Ш", "Щ", "Ъ", "Ы", "Ь", "Э", "Ю", "Я":
 		fallthrough
-	case "а", "б", "в", "г", "д", "е", "ж", "з", "и", "й", "к", "л", "м", "н", "о", "п", "р", "с", "т", "у", "ф", "х", "ц", "ч", "ш", "щ", "ы", "ь", "э", "ю", "я":
+	case "а", "б", "в", "г", "д", "е", "ё", "ж", "з", "и", "й", "к", "л", "м", "н", "о", "п", "р", "с", "т", "у", "ф", "х", "ц", "ч", "ш", "щ", "ъ", "ы", "ь", "э", "ю", "я":
+		return true
+	default:
+		return false
+	}
+}
+
+func isFrik(c string) bool {
+	switch c {
+	case "Ж", "Ц", "Ч", "Ш", "Щ":
+		fallthrough
+	case "ж", "ц", "ч", "ш", "щ":
 		return true
 	default:
 		return false
