@@ -159,11 +159,23 @@ func main() {
 		case "Воистину":
 			fmt.Print("Voistinu")
 			continue
+		case "наивен":
+			fmt.Print("naiven")
+			continue
 
 		case "несущаяся":
 			fmt.Print("nesu{\\x}a{\\y}asa")
 			continue
 
+		case "бургомистра":
+			fmt.Print("burgermeistera")
+			continue
+		case "шифр":
+			fmt.Print("chiffre")
+			continue
+		case "бухгалтерской":
+			fmt.Print("buchhalterskoy")
+			continue
 		case "кацеров":
 			fmt.Print("katzerov")
 			continue
@@ -176,7 +188,16 @@ func main() {
 		case "капюшон":
 			fmt.Print("capuchon")
 			continue
+		case "коллекцию":
+			fmt.Print("collecti{\\y}u")
+			continue
 
+		case "Аванс":
+			fmt.Print("Avance")
+			continue
+		case "Михаила":
+			fmt.Print("Michaela")
+			continue
 		case "Дель":
 			fmt.Print("Del")
 			continue
@@ -188,6 +209,15 @@ func main() {
 			continue
 		case "Фирвальдене":
 			fmt.Print("Firvaldene")
+			continue
+		case "Фабьен":
+			fmt.Print("Fabien")
+			continue
+		case "Клеменз":
+			fmt.Print("Clemence")
+			continue
+		case "Иисусе":
+			fmt.Print("Iesuse")
 			continue
 		default:
 		}
