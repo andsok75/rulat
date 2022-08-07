@@ -134,9 +134,6 @@ func main() {
 		case "аист":
 			fmt.Print("aist")
 			continue
-		case "воскресенье":
-			fmt.Print("voskresen{\\y}e")
-			continue
 
 		case "наизнанку":
 			fmt.Print("naiznanku")
@@ -427,6 +424,9 @@ func main() {
 					i += 1
 				} else if n == "ё" {
 					fmt.Print("{\\y}o")
+					i += 1
+				} else if n == "е" {
+					fmt.Print("{\\y}e")
 					i += 1
 				} else if n == "и" {
 					fmt.Print("{\\yf}i")
