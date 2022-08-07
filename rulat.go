@@ -150,6 +150,9 @@ func main() {
 		case "происходит":
 			fmt.Print("proishodit")
 			continue
+		case "произойдёт":
+			fmt.Print("proizo{\\y}d{\\e}t")
+			continue
 		case "заинтересовали":
 			fmt.Print("zainteresovali")
 			continue
@@ -161,6 +164,9 @@ func main() {
 			continue
 		case "наивен":
 			fmt.Print("naiven")
+			continue
+		case "произнёс":
+			fmt.Print("proizn{\\e}s")
 			continue
 
 		case "несущаяся":
@@ -191,10 +197,22 @@ func main() {
 		case "коллекцию":
 			fmt.Print("collecti{\\y}u")
 			continue
-
+		case "акцентом":
+			fmt.Print("accentom")
+			continue
+		case "трафарет":
+			fmt.Print("traforetto")
+			continue
+		case "силуэт":
+			fmt.Print("silhouette")
+			continue
+		case "контура":
+			fmt.Print("contoura")
+			continue
 		case "Аванс":
 			fmt.Print("Avance")
 			continue
+
 		case "Михаила":
 			fmt.Print("Michaela")
 			continue
