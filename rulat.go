@@ -64,6 +64,7 @@ func main() {
 
 \newcommand{\y}{y̆}
 %\newcommand{\y}{y}
+\newcommand{\yf}{y̆}
 
 \newcommand{\Y}{Y̆}
 %\newcommand{\Y}{Y}
@@ -121,6 +122,9 @@ func main() {
 			continue
 		}
 		switch item.content {
+		case "сегодня":
+			fmt.Print("sevodn{\\ia}")
+			continue
 		case "немного":
 			fmt.Print("nemnogo")
 			continue
@@ -133,15 +137,15 @@ func main() {
 		case "несущаяся":
 			fmt.Print("nesu{\\x}a{\\y}asa")
 			continue
+		case "свиньи":
+			fmt.Print("svin{\\yf}i")
+			continue
 
 		case "наизнанку":
 			fmt.Print("naiznanku")
 			continue
 		case "происходит":
 			fmt.Print("proishodit")
-			continue
-		case "произнес":
-			fmt.Print("proizn{\\e}s")
 			continue
 		case "произойдёт":
 			fmt.Print("proizo{\\y}d{\\e}t")
@@ -160,6 +164,12 @@ func main() {
 			continue
 		case "произнёс":
 			fmt.Print("proizn{\\e}s")
+			continue
+		case "поинтересовался":
+			fmt.Print("pointeresovalsa")
+			continue
+		case "происходило":
+			fmt.Print("proishodilo")
 			continue
 
 		case "кацеров":
