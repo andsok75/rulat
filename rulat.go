@@ -134,9 +134,6 @@ func main() {
 		case "аист":
 			fmt.Print("aist")
 			continue
-		case "свиньи":
-			fmt.Print("svin{\\yf}i")
-			continue
 		case "воскресенье":
 			fmt.Print("voskresen{\\y}e")
 			continue
@@ -430,6 +427,9 @@ func main() {
 					i += 1
 				} else if n == "ё" {
 					fmt.Print("{\\y}o")
+					i += 1
+				} else if n == "и" {
+					fmt.Print("{\\yf}i")
 					i += 1
 				} else if i == wl-3 && (p == "т" || p == "ш") && n == "с" && string(word[wl-1]) == "я" {
 				} else if isFrik(p) && n == "" {
