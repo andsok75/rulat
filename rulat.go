@@ -134,11 +134,11 @@ func main() {
 		case "аист":
 			fmt.Print("aist")
 			continue
-		case "несущаяся":
-			fmt.Print("nesu{\\x}a{\\y}asa")
-			continue
 		case "свиньи":
 			fmt.Print("svin{\\yf}i")
+			continue
+		case "воскресенье":
+			fmt.Print("voskresen{\\y}e")
 			continue
 
 		case "наизнанку":
@@ -393,7 +393,7 @@ func main() {
 			case "р":
 				fmt.Print("r")
 			case "с":
-				if i == wl-2 && n == "я" && (p == "л" || p == "м" || p == "т" || p == "б" || p == "ь") {
+				if i == wl-2 && n == "я" && (p == "й" || p == "я" || p == "е" || p == "л" || p == "м" || p == "т" || p == "б" || p == "ь") {
 					fmt.Print("sa")
 					i += 1
 				} else {
