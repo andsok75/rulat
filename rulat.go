@@ -121,19 +121,6 @@ func main() {
 			continue
 		}
 		switch item.content {
-		case "Христа":
-			fmt.Print("Christa")
-			continue
-		case "Христово":
-			fmt.Print("Christovo")
-			continue
-		case "Христовой":
-			fmt.Print("Christovo{\\y}")
-			continue
-		case "нехристю":
-			fmt.Print("nechrist{\\i}u")
-			continue
-
 		case "немного":
 			fmt.Print("nemnogo")
 			continue
@@ -143,12 +130,18 @@ func main() {
 		case "аист":
 			fmt.Print("aist")
 			continue
+		case "несущаяся":
+			fmt.Print("nesu{\\x}a{\\y}asa")
+			continue
 
 		case "наизнанку":
 			fmt.Print("naiznanku")
 			continue
 		case "происходит":
 			fmt.Print("proishodit")
+			continue
+		case "произнес":
+			fmt.Print("proizn{\\e}s")
 			continue
 		case "произойдёт":
 			fmt.Print("proizo{\\y}d{\\e}t")
@@ -169,52 +162,26 @@ func main() {
 			fmt.Print("proizn{\\e}s")
 			continue
 
-		case "несущаяся":
-			fmt.Print("nesu{\\x}a{\\y}asa")
-			continue
-
-		case "бургомистра":
-			fmt.Print("burgermeistera")
-			continue
-		case "шифр":
-			fmt.Print("chiffre")
-			continue
-		case "бухгалтерской":
-			fmt.Print("buchhalterskoy")
-			continue
 		case "кацеров":
 			fmt.Print("katzerov")
 			continue
-		case "миф":
-			fmt.Print("myth")
+		case "Христа":
+			fmt.Print("Christa")
 			continue
-		case "тифа":
-			fmt.Print("typha")
+		case "Христово":
+			fmt.Print("Christovo")
 			continue
-		case "капюшон":
-			fmt.Print("capuchon")
+		case "Христовой":
+			fmt.Print("Christovo{\\y}")
 			continue
-		case "коллекцию":
-			fmt.Print("collecti{\\y}u")
+		case "нехристю":
+			fmt.Print("nechrist{\\i}u")
 			continue
-		case "акцентом":
-			fmt.Print("accentom")
-			continue
-		case "трафарет":
-			fmt.Print("traforetto")
-			continue
-		case "силуэт":
-			fmt.Print("silhouette")
-			continue
-		case "контура":
-			fmt.Print("contoura")
-			continue
-		case "Аванс":
-			fmt.Print("Avance")
-			continue
-
 		case "Михаила":
 			fmt.Print("Michaela")
+			continue
+		case "Петра":
+			fmt.Print("Petera")
 			continue
 		case "Дель":
 			fmt.Print("Del")
@@ -237,6 +204,43 @@ func main() {
 		case "Иисусе":
 			fmt.Print("Iesuse")
 			continue
+
+		// case "бургомистра":
+		// 	fmt.Print("burgermeistera")
+		// 	continue
+		// case "шифр":
+		// 	fmt.Print("chiffre")
+		// 	continue
+		// case "бухгалтерской":
+		// 	fmt.Print("buchhalterskoy")
+		// 	continue
+		// case "миф":
+		// 	fmt.Print("myth")
+		// 	continue
+		// case "тифа":
+		// 	fmt.Print("typha")
+		// 	continue
+		// case "капюшон":
+		// 	fmt.Print("capuchon")
+		// 	continue
+		// case "коллекцию":
+		// 	fmt.Print("collecti{\\y}u")
+		// 	continue
+		// case "акцентом":
+		// 	fmt.Print("accentom")
+		// 	continue
+		// case "трафарет":
+		// 	fmt.Print("traforetto")
+		// 	continue
+		// case "силуэт":
+		// 	fmt.Print("silhouette")
+		// 	continue
+		// case "контура":
+		// 	fmt.Print("contoura")
+		// 	continue
+		// case "Аванс":
+		// 	fmt.Print("Avance")
+		// 	continue
 		default:
 		}
 		log.Printf("processing *%s*", item.content)
