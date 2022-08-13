@@ -8,31 +8,13 @@ import (
 
 const input_file = "./text"
 
-type Item struct {
-	isWord  bool
-	content string
-}
-
 func main() {
 	content, err := ioutil.ReadFile(input_file)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	items := []Item{}
-	word := ""
-	for _, r := range string(content) {
-		c := string(r)
-		if isWord(c) {
-			word = word + c
-			continue
-		}
-		if word != "" {
-			items = append(items, Item{true, word})
-			word = ""
-		}
-		items = append(items, Item{false, c})
-	}
+	items := getItems(string(content))
 
 	fmt.Print(header)
 
@@ -48,7 +30,7 @@ func main() {
 			}
 			continue
 		}
-		if v, ok := exceptions[item.content]; ok {
+		if v, ok := exceptions()[item.content]; ok {
 			fmt.Print(v)
 			continue
 		}
@@ -302,6 +284,64 @@ func isFrict(c string) bool {
 	}
 }
 
+type Item struct {
+	isWord  bool
+	content string
+}
+
+func getItems(s string) []Item {
+	items := []Item{}
+	word := ""
+	for _, r := range s {
+		c := string(r)
+		if isWord(c) {
+			word = word + c
+			continue
+		}
+		if word != "" {
+			items = append(items, Item{true, word})
+			word = ""
+		}
+		items = append(items, Item{false, c})
+	}
+	return items
+}
+
+func isPrefix(s string) bool {
+	return s == "про" || s == "по" || s == "за" || s == "на"
+}
+
+func exceptions() map[string]string {
+	return map[string]string{
+		"сегодня":       "sevodn{\\ia}",
+		"немного":       "nemnogo",
+		"много":         "mnogo",
+		"аист":          "aist",
+		"наивен":        "naiven",
+		"Воистину":      "Voistinu",
+		"кацеров":       "katzerov",
+		"Христа":        "Christa",
+		"Христово":      "Christovo",
+		"Христовой":     "Christovo{\\y}",
+		"нехристю":      "nechrist{\\i}u",
+		"Михаила":       "Michaela",
+		"Петра":         "Petera",
+		"Дель":          "Del",
+		"Людвиг":        "Ludwig",
+		"Лезерберг":     "Leserberg",
+		"Фирвальдене":   "Firvaldene",
+		"Фабьен":        "Fabien",
+		"Клеменз":       "Clemence",
+		"Иисусе":        "Iesuse",
+		"Ганс":          "Hans",
+		"Ганса":         "Hansa",
+		"Гансом":        "Hansom",
+		"Альбаланда":    "Albalanda",
+		"Лисецке":       "Lisetske",
+		"Дорч-ган-Тойн": "Dortch-gan-Toyn",
+	}
+}
+
 const header = `\documentclass[10pt]{book}
 \usepackage{fontspec}
 \setmainfont{Linux Libertine O}
@@ -382,36 +422,3 @@ const header = `\documentclass[10pt]{book}
 const footer = `
 \end{document}
 `
-
-func isPrefix(s string) bool {
-	return s == "про" || s == "по" || s == "за" || s == "на"
-}
-
-var exceptions = map[string]string{
-	"сегодня":       "sevodn{\\ia}",
-	"немного":       "nemnogo",
-	"много":         "mnogo",
-	"аист":          "aist",
-	"наивен":        "naiven",
-	"Воистину":      "Voistinu",
-	"кацеров":       "katzerov",
-	"Христа":        "Christa",
-	"Христово":      "Christovo",
-	"Христовой":     "Christovo{\\y}",
-	"нехристю":      "nechrist{\\i}u",
-	"Михаила":       "Michaela",
-	"Петра":         "Petera",
-	"Дель":          "Del",
-	"Людвиг":        "Ludwig",
-	"Лезерберг":     "Leserberg",
-	"Фирвальдене":   "Firvaldene",
-	"Фабьен":        "Fabien",
-	"Клеменз":       "Clemence",
-	"Иисусе":        "Iesuse",
-	"Ганс":          "Hans",
-	"Ганса":         "Hansa",
-	"Гансом":        "Hansom",
-	"Альбаланда":    "Albalanda",
-	"Лисецке":       "Lisetske",
-	"Дорч-ган-Тойн": "Dortch-gan-Toyn",
-}
