@@ -358,6 +358,11 @@ func exceptions() map[string]string {
 		"Хартвига":         "Hartwiga",
 		"Шуко":             "Shuko",
 		"Рози":             "Rosi",
+		"Шоссии":           "Shossi{\\y}a",
+		"Валентин":         "Valentin",
+		"Валентина":        "Valentina",
+		"Вальтер":          "Walter",
+		"Нормайенн":        "Normaenn",
 	}
 }
 
