@@ -372,7 +372,7 @@ func main() {
 				if p == "" || isVowel(p) {
 					fmt.Print("{\\y}o")
 				} else {
-					if isFrik(p) {
+					if isFrict(p) {
 						fmt.Print("o")
 					} else {
 						fmt.Print("{\\e}")
@@ -450,7 +450,7 @@ func main() {
 					fmt.Print("{\\yf}i")
 					i += 1
 				} else if i == wl-3 && (p == "т" || p == "ш") && n == "с" && string(word[wl-1]) == "я" {
-				} else if isFrik(p) && n == "" {
+				} else if isFrict(p) && n == "" {
 				} else {
 					fmt.Print("y")
 				}
@@ -499,7 +499,7 @@ func isWord(c string) bool {
 	}
 }
 
-func isFrik(c string) bool {
+func isFrict(c string) bool {
 	switch c {
 	case "Ж", "Ц", "Ч", "Ш", "Щ":
 		fallthrough
