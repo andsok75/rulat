@@ -17,6 +17,7 @@ func main() {
 	items := getItems(string(content))
 
 	fmt.Print(header)
+	fmt.Print(commands)
 
 	for _, item := range items {
 		if !item.isWord {
@@ -101,7 +102,7 @@ func main() {
 			case "Х":
 				fmt.Print("H")
 			case "Ц":
-				fmt.Print("{\\Q}")
+				fmt.Print("{\\C}")
 			case "Ч":
 				fmt.Print("C")
 			case "Ш":
@@ -200,7 +201,7 @@ func main() {
 			case "х":
 				fmt.Print("h")
 			case "ц":
-				fmt.Print("{\\q}")
+				fmt.Print("{\\c}")
 			case "ч":
 				fmt.Print("c")
 			case "ш":
@@ -370,14 +371,13 @@ const header = `\documentclass[10pt]{book}
 \usepackage{fontspec}
 \setmainfont{Linux Libertine O}
 \begin{document}
+`
 
+const commands = `
 \newcommand{\e}{ë}
 %\newcommand{\e}{e}
 %\newcommand{\e}{é}
 %\newcommand{\e}{ó}
-
-\renewcommand{\i}{ı}
-%\renewcommand{\i}{i}
 
 \newcommand{\yi}{yı}
 %\newcommand{\yi}{yi}
@@ -397,59 +397,58 @@ const header = `\documentclass[10pt]{book}
 %\newcommand{\iu}{ú}
 
 \newcommand{\y}{y̆}
-%\newcommand{\y}{y}
 \newcommand{\yf}{y̆}
+%\newcommand{\y}{y}
 
 \newcommand{\Y}{Y̆}
 %\newcommand{\Y}{Y}
 
 \newcommand{\X}{X̹}
 \newcommand{\x}{x̹}
-\newcommand{\Q}{C̹}
-\newcommand{\q}{c̹}
+\newcommand{\C}{C̹}
+\renewcommand{\c}{c̹}
 
 % % mixed ogonek and q
 % \newcommand{\X}{X̨}
 % \newcommand{\x}{x̨}
-% \newcommand{\Q}{Q}
-% \newcommand{\q}{q}
+% \newcommand{\C}{Q}
+% \renewcommand{\c}{q}
 %
 % % ogonek
 % \newcommand{\X}{X̨}
 % \newcommand{\x}{x̨}
-% \newcommand{\Q}{C̨}
-% \newcommand{\q}{c̨}
+% \newcommand{\C}{C̨}
+% \renewcommand{\c}{c̨}
 % 
 % % right half ring
 % \newcommand{\X}{X̹}
 % \newcommand{\x}{x̹}
-% \newcommand{\Q}{C̹}
-% \newcommand{\q}{c̹}
+% \newcommand{\C}{C̹}
+% \renewcommand{\c}{c̹}
 %
 % % retroflex hook
 % \newcommand{\X}{X̢}
 % \newcommand{\x}{x̢}
-% \newcommand{\Q}{C̢}
-% \newcommand{\q}{c̢}
+% \newcommand{\C}{C̢}
+% \renewcommand{\c}{c̢}
 % 
 % % cedilla
 % \newcommand{\X}{X̧}
 % \newcommand{\x}{x̧}
-% \newcommand{\Q}{Ç}
-% \newcommand{\q}{ç}
+% \newcommand{\C}{Ç}
+% \renewcommand{\c}{ç}
 % 
 % % hook
 % \newcommand{\X}{X̡}
 % \newcommand{\x}{x̡}
-% \newcommand{\Q}{C̡}
-% \newcommand{\q}{c̡}
+% \newcommand{\C}{C̡}
+% \renewcommand{\c}{c̡}
 % 
 % % acute accent below
 % \newcommand{\X}{X̗}
 % \newcommand{\x}{x̗}
-% \newcommand{\Q}{C̗}
-% \newcommand{\q}{c̗}
-
+% \newcommand{\C}{C̗}
+% \renewcommand{\c}{c̗}
 `
 
 const footer = `
