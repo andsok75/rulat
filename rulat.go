@@ -52,6 +52,8 @@ func main() {
 				n = string(word[i+1])
 			}
 			switch c {
+			case "-":
+				fmt.Print("-")
 			case "А":
 				fmt.Print("A")
 			case "Б":
@@ -126,6 +128,8 @@ func main() {
 				fmt.Print("v")
 			case "г":
 				if i == wl-2 && n == "о" && (p == "о" || p == "е" || p == "Е") {
+					fmt.Print("v")
+				} else if i < wl-2 && string(word[i:i+3]) == "го-" && (p == "о" || p == "е" || p == "Е") {
 					fmt.Print("v")
 				} else {
 					fmt.Print("g")
@@ -245,7 +249,7 @@ func main() {
 					fmt.Print("{\\ia}")
 				}
 			default:
-				log.Fatalf("not a word: *%s*", c)
+				log.Fatalf("not valid: *%s*", c)
 			}
 		}
 	}
@@ -264,6 +268,8 @@ func isVowel(c string) bool {
 
 func isWord(c string) bool {
 	switch c {
+	case "-":
+		fallthrough
 	case "А", "Б", "В", "Г", "Д", "Е", "Ё", "Ж", "З", "И", "Й", "К", "Л", "М", "Н", "О", "П", "Р", "С", "Т", "У", "Ф", "Х", "Ц", "Ч", "Ш", "Щ", "Ъ", "Ы", "Ь", "Э", "Ю", "Я":
 		fallthrough
 	case "а", "б", "в", "г", "д", "е", "ё", "ж", "з", "и", "й", "к", "л", "м", "н", "о", "п", "р", "с", "т", "у", "ф", "х", "ц", "ч", "ш", "щ", "ъ", "ы", "ь", "э", "ю", "я":
@@ -313,32 +319,32 @@ func isPrefix(s string) bool {
 
 func exceptions() map[string]string {
 	return map[string]string{
-		"сегодня":       "sevodn{\\ia}",
-		"немного":       "nemnogo",
-		"много":         "mnogo",
-		"аист":          "aist",
-		"наивен":        "naiven",
-		"Воистину":      "Voistinu",
-		"кацеров":       "katzerov",
-		"Христа":        "Christa",
-		"Христово":      "Christovo",
-		"Христовой":     "Christovo{\\y}",
-		"нехристю":      "nechrist{\\i}u",
-		"Михаила":       "Michaela",
-		"Петра":         "Petera",
-		"Дель":          "Del",
-		"Людвиг":        "Ludwig",
-		"Лезерберг":     "Leserberg",
-		"Фирвальдене":   "Firvaldene",
-		"Фабьен":        "Fabien",
-		"Клеменз":       "Clemence",
-		"Иисусе":        "Iesuse",
-		"Ганс":          "Hans",
-		"Ганса":         "Hansa",
-		"Гансом":        "Hansom",
-		"Альбаланда":    "Albalanda",
-		"Лисецке":       "Lisetske",
-		"Дорч-ган-Тойн": "Dortch-gan-Toyn",
+		"сегодня":          "sevodn{\\ia}",
+		"немного":          "nemnogo",
+		"много":            "mnogo",
+		"аист":             "aist",
+		"наивен":           "naiven",
+		"Воистину":         "Voistinu",
+		"кацеров":          "katzerov",
+		"Христа":           "Christa",
+		"Христово":         "Christovo",
+		"Христовой":        "Christovo{\\y}",
+		"нехристю-хагжиту": "nechrist{\\iu}-hagjitu",
+		"Михаила":          "Michaela",
+		"Петра":            "Petera",
+		"Дель":             "Del",
+		"Людвиг":           "Ludwig",
+		"Лезерберг":        "Leserberg",
+		"Фирвальдене":      "Firvaldene",
+		"Фабьен":           "Fabien",
+		"Клеменз":          "Clemence",
+		"Иисусе":           "Iesuse",
+		"Ганс":             "Hans",
+		"Ганса":            "Hansa",
+		"Гансом":           "Hansom",
+		"Альбаланда":       "Albalanda",
+		"Лисецке":          "Lisetske",
+		"Дорч-ган-Тойн":    "Dortch-gan-Toyn",
 	}
 }
 
