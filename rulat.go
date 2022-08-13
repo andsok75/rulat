@@ -172,7 +172,13 @@ func main() {
 				fmt.Print("z")
 			case "и":
 				if isVowel(p) {
-					fmt.Print("{\\y}i")
+					if i == 3 && isPrefix(string(word[:3])) {
+						fmt.Print("i")
+					} else if i == 2 && isPrefix(string(word[:2])) {
+						fmt.Print("i")
+					} else {
+						fmt.Print("{\\y}i")
+					}
 				} else {
 					fmt.Print("i")
 				}
@@ -377,24 +383,17 @@ const footer = `
 \end{document}
 `
 
+func isPrefix(s string) bool {
+	return s == "про" || s == "по" || s == "за" || s == "на"
+}
+
 var exceptions = map[string]string{
-	"сегодня": "sevodn{\\ia}",
-
-	"немного": "nemnogo",
-	"много":   "mnogo",
-	"аист":    "aist",
-	"наивен":  "naiven",
-
-	"наизнанку":       "naiznanku",
-	"происходит":      "proishodit",
-	"произойдёт":      "proizo{\\y}d{\\e}t",
-	"заинтересовали":  "zainteresovali",
-	"заинтересованно": "zainteresovanno",
-	"Воистину":        "Voistinu",
-	"произнёс":        "proizn{\\e}s",
-	"поинтересовался": "pointeresovalsa",
-	"происходило":     "proishodilo",
-
+	"сегодня":       "sevodn{\\ia}",
+	"немного":       "nemnogo",
+	"много":         "mnogo",
+	"аист":          "aist",
+	"наивен":        "naiven",
+	"Воистину":      "Voistinu",
 	"кацеров":       "katzerov",
 	"Христа":        "Christa",
 	"Христово":      "Christovo",
