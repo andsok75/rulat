@@ -208,6 +208,24 @@ func main() {
 		case "Иисусе":
 			fmt.Print("Iesuse")
 			continue
+		case "Ганс":
+			fmt.Print("Hans")
+			continue
+		case "Ганса":
+			fmt.Print("Hansa")
+			continue
+		case "Гансом":
+			fmt.Print("Hansom")
+			continue
+		case "Альбаланда":
+			fmt.Print("Albalanda")
+			continue
+		case "Лисецке":
+			fmt.Print("Lisetske")
+			continue
+		case "Дорч-ган-Тойн":
+			fmt.Print("Dortch-gan-Toyn")
+			continue
 
 		// case "бургомистра":
 		// 	fmt.Print("burgermeistera")
