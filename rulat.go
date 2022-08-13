@@ -406,40 +406,52 @@ const header = `\documentclass[10pt]{book}
 \newcommand{\C}{C}
 \renewcommand{\c}{c}
 
-\newcommand{\X}{X̨}
-\newcommand{\x}{x̨}
-\newcommand{\Q}{Q}
-\newcommand{\q}{q}
+\newcommand{\X}{X̹}
+\newcommand{\x}{x̹}
+\newcommand{\Q}{C̹}
+\newcommand{\q}{c̹}
 
+% % mixed ogonek and q
+% \newcommand{\X}{X̨}
+% \newcommand{\x}{x̨}
+% \newcommand{\Q}{Q}
+% \newcommand{\q}{q}
+%
 % % ogonek
 % \newcommand{\X}{X̨}
 % \newcommand{\x}{x̨}
 % \newcommand{\Q}{C̨}
 % \newcommand{\q}{c̨}
 % 
+% % right half ring
+% \newcommand{\X}{X̹}
+% \newcommand{\x}{x̹}
+% \newcommand{\Q}{C̹}
+% \newcommand{\q}{c̹}
+%
 % % retroflex hook
 % \newcommand{\X}{X̢}
 % \newcommand{\x}{x̢}
 % \newcommand{\Q}{C̢}
-% \renewcommand{\q}{c̢}
+% \newcommand{\q}{c̢}
 % 
 % % cedilla
 % \newcommand{\X}{X̧}
 % \newcommand{\x}{x̧}
 % \newcommand{\Q}{Ç}
-% \renewcommand{\q}{ç}
+% \newcommand{\q}{ç}
 % 
 % % hook
 % \newcommand{\X}{X̡}
 % \newcommand{\x}{x̡}
 % \newcommand{\Q}{C̡}
-% \renewcommand{\q}{c̡}
+% \newcommand{\q}{c̡}
 % 
-% % acute accent
+% % acute accent below
 % \newcommand{\X}{X̗}
 % \newcommand{\x}{x̗}
 % \newcommand{\Q}{C̗}
-% \renewcommand{\q}{c̗}
+% \newcommand{\q}{c̗}
 
 `
 
