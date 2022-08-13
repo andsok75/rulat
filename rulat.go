@@ -103,7 +103,7 @@ func main() {
 			case "Ц":
 				fmt.Print("{\\Q}")
 			case "Ч":
-				fmt.Print("{\\C}")
+				fmt.Print("C")
 			case "Ш":
 				fmt.Print("X")
 			case "Щ":
@@ -202,7 +202,7 @@ func main() {
 			case "ц":
 				fmt.Print("{\\q}")
 			case "ч":
-				fmt.Print("{\\c}")
+				fmt.Print("c")
 			case "ш":
 				fmt.Print("x")
 			case "щ":
@@ -402,9 +402,6 @@ const header = `\documentclass[10pt]{book}
 
 \newcommand{\Y}{Y̆}
 %\newcommand{\Y}{Y}
-
-\newcommand{\C}{C}
-\renewcommand{\c}{c}
 
 \newcommand{\X}{X̹}
 \newcommand{\x}{x̹}
