@@ -328,6 +328,7 @@ func exceptions() map[string]string {
 		"Воистину":         "Voistinu",
 		"кацеров":          "katzerov",
 		"чувствовал":       "custvoval",
+		"чувствовала":      "custvovala",
 		"Иисусе":           "Iesuse",
 		"Христа":           "Christa",
 		"Христово":         "Christovo",
