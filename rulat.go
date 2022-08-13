@@ -226,43 +226,6 @@ func main() {
 		case "Дорч-ган-Тойн":
 			fmt.Print("Dortch-gan-Toyn")
 			continue
-
-		// case "бургомистра":
-		// 	fmt.Print("burgermeistera")
-		// 	continue
-		// case "шифр":
-		// 	fmt.Print("chiffre")
-		// 	continue
-		// case "бухгалтерской":
-		// 	fmt.Print("buchhalterskoy")
-		// 	continue
-		// case "миф":
-		// 	fmt.Print("myth")
-		// 	continue
-		// case "тифа":
-		// 	fmt.Print("typha")
-		// 	continue
-		// case "капюшон":
-		// 	fmt.Print("capuchon")
-		// 	continue
-		// case "коллекцию":
-		// 	fmt.Print("collecti{\\y}u")
-		// 	continue
-		// case "акцентом":
-		// 	fmt.Print("accentom")
-		// 	continue
-		// case "трафарет":
-		// 	fmt.Print("traforetto")
-		// 	continue
-		// case "силуэт":
-		// 	fmt.Print("silhouette")
-		// 	continue
-		// case "контура":
-		// 	fmt.Print("contoura")
-		// 	continue
-		// case "Аванс":
-		// 	fmt.Print("Avance")
-		// 	continue
 		default:
 		}
 		log.Printf("processing *%s*", item.content)
