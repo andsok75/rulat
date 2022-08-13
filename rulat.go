@@ -6,13 +6,15 @@ import (
 	"log"
 )
 
+const input_file = "./text"
+
 type Item struct {
 	isWord  bool
 	content string
 }
 
 func main() {
-	content, err := ioutil.ReadFile("./text")
+	content, err := ioutil.ReadFile(input_file)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -32,82 +34,7 @@ func main() {
 		items = append(items, Item{false, c})
 	}
 
-	fmt.Print(`\documentclass[10pt]{book}
-\usepackage{fontspec}
-\setmainfont{Linux Libertine O}
-\begin{document}
-
-\newcommand{\e}{ë}
-%\newcommand{\e}{e}
-%\newcommand{\e}{é}
-%\newcommand{\e}{ó}
-
-\renewcommand{\i}{ı}
-%\renewcommand{\i}{i}
-
-\newcommand{\yi}{yı}
-%\newcommand{\yi}{yi}
-%\newcommand{\yi}{ǝ}
-
-\newcommand{\ia}{ıa}
-%\newcommand{\ia}{ia}
-%\newcommand{\ia}{ía}
-%\newcommand{\ia}{á}
-
-\newcommand{\iu}{ıo}
-%\newcommand{\iu}{ıu}
-%\newcommand{\iu}{iu}
-%\newcommand{\iu}{io}
-%\newcommand{\iu}{ío}
-%\newcommand{\iu}{íu}
-%\newcommand{\iu}{ú}
-
-\newcommand{\y}{y̆}
-%\newcommand{\y}{y}
-\newcommand{\yf}{y̆}
-
-\newcommand{\Y}{Y̆}
-%\newcommand{\Y}{Y}
-
-\newcommand{\C}{C}
-\renewcommand{\c}{c}
-
-\newcommand{\X}{X̨}
-\newcommand{\x}{x̨}
-\newcommand{\Q}{Q}
-\newcommand{\q}{q}
-
-% % ogonek
-% \newcommand{\X}{X̨}
-% \newcommand{\x}{x̨}
-% \newcommand{\Q}{C̨}
-% \newcommand{\q}{c̨}
-% 
-% % retroflex hook
-% \newcommand{\X}{X̢}
-% \newcommand{\x}{x̢}
-% \newcommand{\Q}{C̢}
-% \renewcommand{\q}{c̢}
-% 
-% % cedilla
-% \newcommand{\X}{X̧}
-% \newcommand{\x}{x̧}
-% \newcommand{\Q}{Ç}
-% \renewcommand{\q}{ç}
-% 
-% % hook
-% \newcommand{\X}{X̡}
-% \newcommand{\x}{x̡}
-% \newcommand{\Q}{C̡}
-% \renewcommand{\q}{c̡}
-% 
-% % acute accent
-% \newcommand{\X}{X̗}
-% \newcommand{\x}{x̗}
-% \newcommand{\Q}{C̗}
-% \renewcommand{\q}{c̗}
-
-`)
+	fmt.Print(header)
 
 	for _, item := range items {
 		if !item.isWord {
@@ -121,113 +48,11 @@ func main() {
 			}
 			continue
 		}
-		switch item.content {
-		case "сегодня":
-			fmt.Print("sevodn{\\ia}")
+		if v, ok := exceptions[item.content]; ok {
+			fmt.Print(v)
 			continue
-		case "немного":
-			fmt.Print("nemnogo")
-			continue
-		case "много":
-			fmt.Print("mnogo")
-			continue
-		case "аист":
-			fmt.Print("aist")
-			continue
-
-		case "наизнанку":
-			fmt.Print("naiznanku")
-			continue
-		case "происходит":
-			fmt.Print("proishodit")
-			continue
-		case "произойдёт":
-			fmt.Print("proizo{\\y}d{\\e}t")
-			continue
-		case "заинтересовали":
-			fmt.Print("zainteresovali")
-			continue
-		case "заинтересованно":
-			fmt.Print("zainteresovanno")
-			continue
-		case "Воистину":
-			fmt.Print("Voistinu")
-			continue
-		case "наивен":
-			fmt.Print("naiven")
-			continue
-		case "произнёс":
-			fmt.Print("proizn{\\e}s")
-			continue
-		case "поинтересовался":
-			fmt.Print("pointeresovalsa")
-			continue
-		case "происходило":
-			fmt.Print("proishodilo")
-			continue
-
-		case "кацеров":
-			fmt.Print("katzerov")
-			continue
-		case "Христа":
-			fmt.Print("Christa")
-			continue
-		case "Христово":
-			fmt.Print("Christovo")
-			continue
-		case "Христовой":
-			fmt.Print("Christovo{\\y}")
-			continue
-		case "нехристю":
-			fmt.Print("nechrist{\\i}u")
-			continue
-		case "Михаила":
-			fmt.Print("Michaela")
-			continue
-		case "Петра":
-			fmt.Print("Petera")
-			continue
-		case "Дель":
-			fmt.Print("Del")
-			continue
-		case "Людвиг":
-			fmt.Print("Ludwig")
-			continue
-		case "Лезерберг":
-			fmt.Print("Leserberg")
-			continue
-		case "Фирвальдене":
-			fmt.Print("Firvaldene")
-			continue
-		case "Фабьен":
-			fmt.Print("Fabien")
-			continue
-		case "Клеменз":
-			fmt.Print("Clemence")
-			continue
-		case "Иисусе":
-			fmt.Print("Iesuse")
-			continue
-		case "Ганс":
-			fmt.Print("Hans")
-			continue
-		case "Ганса":
-			fmt.Print("Hansa")
-			continue
-		case "Гансом":
-			fmt.Print("Hansom")
-			continue
-		case "Альбаланда":
-			fmt.Print("Albalanda")
-			continue
-		case "Лисецке":
-			fmt.Print("Lisetske")
-			continue
-		case "Дорч-ган-Тойн":
-			fmt.Print("Dortch-gan-Toyn")
-			continue
-		default:
 		}
+
 		log.Printf("processing *%s*", item.content)
 		word := []rune(item.content)
 		wl := len(word)
@@ -437,9 +262,7 @@ func main() {
 		}
 	}
 
-	fmt.Print(`
-\end{document}
-`)
+	fmt.Print(footer)
 }
 
 func isVowel(c string) bool {
@@ -471,4 +294,125 @@ func isFrict(c string) bool {
 	default:
 		return false
 	}
+}
+
+const header = `\documentclass[10pt]{book}
+\usepackage{fontspec}
+\setmainfont{Linux Libertine O}
+\begin{document}
+
+\newcommand{\e}{ë}
+%\newcommand{\e}{e}
+%\newcommand{\e}{é}
+%\newcommand{\e}{ó}
+
+\renewcommand{\i}{ı}
+%\renewcommand{\i}{i}
+
+\newcommand{\yi}{yı}
+%\newcommand{\yi}{yi}
+%\newcommand{\yi}{ǝ}
+
+\newcommand{\ia}{ıa}
+%\newcommand{\ia}{ia}
+%\newcommand{\ia}{ía}
+%\newcommand{\ia}{á}
+
+\newcommand{\iu}{ıo}
+%\newcommand{\iu}{ıu}
+%\newcommand{\iu}{iu}
+%\newcommand{\iu}{io}
+%\newcommand{\iu}{ío}
+%\newcommand{\iu}{íu}
+%\newcommand{\iu}{ú}
+
+\newcommand{\y}{y̆}
+%\newcommand{\y}{y}
+\newcommand{\yf}{y̆}
+
+\newcommand{\Y}{Y̆}
+%\newcommand{\Y}{Y}
+
+\newcommand{\C}{C}
+\renewcommand{\c}{c}
+
+\newcommand{\X}{X̨}
+\newcommand{\x}{x̨}
+\newcommand{\Q}{Q}
+\newcommand{\q}{q}
+
+% % ogonek
+% \newcommand{\X}{X̨}
+% \newcommand{\x}{x̨}
+% \newcommand{\Q}{C̨}
+% \newcommand{\q}{c̨}
+% 
+% % retroflex hook
+% \newcommand{\X}{X̢}
+% \newcommand{\x}{x̢}
+% \newcommand{\Q}{C̢}
+% \renewcommand{\q}{c̢}
+% 
+% % cedilla
+% \newcommand{\X}{X̧}
+% \newcommand{\x}{x̧}
+% \newcommand{\Q}{Ç}
+% \renewcommand{\q}{ç}
+% 
+% % hook
+% \newcommand{\X}{X̡}
+% \newcommand{\x}{x̡}
+% \newcommand{\Q}{C̡}
+% \renewcommand{\q}{c̡}
+% 
+% % acute accent
+% \newcommand{\X}{X̗}
+% \newcommand{\x}{x̗}
+% \newcommand{\Q}{C̗}
+% \renewcommand{\q}{c̗}
+
+`
+
+const footer = `
+\end{document}
+`
+
+var exceptions = map[string]string{
+	"сегодня": "sevodn{\\ia}",
+
+	"немного": "nemnogo",
+	"много":   "mnogo",
+	"аист":    "aist",
+	"наивен":  "naiven",
+
+	"наизнанку":       "naiznanku",
+	"происходит":      "proishodit",
+	"произойдёт":      "proizo{\\y}d{\\e}t",
+	"заинтересовали":  "zainteresovali",
+	"заинтересованно": "zainteresovanno",
+	"Воистину":        "Voistinu",
+	"произнёс":        "proizn{\\e}s",
+	"поинтересовался": "pointeresovalsa",
+	"происходило":     "proishodilo",
+
+	"кацеров":       "katzerov",
+	"Христа":        "Christa",
+	"Христово":      "Christovo",
+	"Христовой":     "Christovo{\\y}",
+	"нехристю":      "nechrist{\\i}u",
+	"Михаила":       "Michaela",
+	"Петра":         "Petera",
+	"Дель":          "Del",
+	"Людвиг":        "Ludwig",
+	"Лезерберг":     "Leserberg",
+	"Фирвальдене":   "Firvaldene",
+	"Фабьен":        "Fabien",
+	"Клеменз":       "Clemence",
+	"Иисусе":        "Iesuse",
+	"Ганс":          "Hans",
+	"Ганса":         "Hansa",
+	"Гансом":        "Hansom",
+	"Альбаланда":    "Albalanda",
+	"Лисецке":       "Lisetske",
+	"Дорч-ган-Тойн": "Dortch-gan-Toyn",
 }
