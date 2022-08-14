@@ -375,6 +375,7 @@ func exceptions() map[string]string {
 		"Натана":         "Nathana",
 		"Фрингбоу":       "Fringboe",
 		"Травинно":       "Travino",
+		"Джулию":         "Juliyu",
 	}
 }
 
