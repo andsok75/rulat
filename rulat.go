@@ -330,6 +330,7 @@ func exceptions() map[string]string {
 		"чувствовал":       "custvoval",
 		"чувствовала":      "custvovala",
 		"предыдущая":       "predidu{\\x}a{\\y}a",
+		"предыдущего":      "predidu{\\x}evo",
 		"нехристю-хагжиту": "nechrist{\\iu}-hagjitu",
 
 		"Иисусе":         "Iesuse",
@@ -341,6 +342,7 @@ func exceptions() map[string]string {
 		"Дель":           "Del",
 		"Людвиг":         "Ludwig",
 		"Лезерберг":      "Leserberg",
+		"Лезерберга":     "Leserberga",
 		"Фирвальден":     "Firvalden",
 		"Фирвальдене":    "Firvaldene",
 		"Фабьен":         "Fabien",
@@ -354,6 +356,7 @@ func exceptions() map[string]string {
 		"Лисецке":        "Lisetske",
 		"Витильск":       "Witilsk",
 		"Витильска":      "Witilska",
+		"Витильске":      "Witilske",
 		"Дорч-ган-Тойн":  "Dortch-gan-Toyn",
 		"Дорч-ган-Тойне": "Dortch-gan-Toyne",
 		"Бробергер":      "Broberger",
