@@ -186,7 +186,7 @@ func main() {
 			case "р":
 				fmt.Print("r")
 			case "с":
-				if i == wl-2 && n == "я" && (p == "ю" || p == "й" || p == "я" || p == "е" || p == "л" || p == "м" || p == "т" || p == "б" || p == "ь") {
+				if i == wl-2 && n == "я" && (p == "у" || p == "ю" || p == "й" || p == "я" || p == "е" || p == "л" || p == "м" || p == "т" || p == "б" || p == "ь") {
 					fmt.Print("sa")
 					i += 1
 				} else {
@@ -369,6 +369,7 @@ func exceptions() map[string]string {
 		"Филиппу":          "Philippu",
 		"Натан":            "Nathan",
 		"Натана":           "Nathana",
+		"Фрингбоу":         "Fringboe",
 	}
 }
 
