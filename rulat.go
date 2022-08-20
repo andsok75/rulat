@@ -344,6 +344,9 @@ func exceptions() map[string]string {
 		"предыдущая":       "predidu{\\x}a{\\y}a",
 		"предыдущего":      "predidu{\\x}evo",
 		"нехристю-хагжиту": "nechrist{\\iu}-hagjitu",
+		"Мэтр":             "Maitre",
+		"Кондотьер":        "Kondotier",
+		"кондотьера":       "kondotiera",
 
 		"Иисусе":         "Iesuse",
 		"Христа":         "Christa",
@@ -384,6 +387,7 @@ func exceptions() map[string]string {
 		"Вальтера":       "Waltera",
 		"Вальтером":      "Walterom",
 		"Нормайенн":      "Normaenn",
+		"Нормайенном":    "Normaennom",
 		"Филипп":         "Philipp",
 		"Филиппу":        "Philippu",
 		"Натан":          "Nathan",
@@ -391,6 +395,12 @@ func exceptions() map[string]string {
 		"Фрингбоу":       "Fringboe",
 		"Травинно":       "Travino",
 		"Джулию":         "Juliyu",
+		"Адиль":          "Adil",
+		"аль":            "al",
+		"Джума":          "Juma",
+		"Лавендуззского": "Lavenduzskovo",
+		"Чезаре":         "Cesare",
+		"Каварзере":      "Cavarzere",
 	}
 }
 
