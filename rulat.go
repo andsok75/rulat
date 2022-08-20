@@ -327,7 +327,7 @@ func getItems(s string) []Item {
 }
 
 func isPrefix(s string) bool {
-	return s == "про" || s == "по" || s == "за" || s == "на"
+	return s == "про" || s == "по" || s == "за" || s == "на" || s == "не"
 }
 
 func exceptions() map[string]string {
