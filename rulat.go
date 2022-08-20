@@ -45,12 +45,13 @@ func main() {
 			c := string(word[i])
 			if i > 0 {
 				p = string(word[i-1])
-			}
-			if i == wl-1 {
-				n = ""
+			} else {
+				p = ""
 			}
 			if i < wl-1 {
 				n = string(word[i+1])
+			} else {
+				n = ""
 			}
 			switch c {
 			case "-":
@@ -128,10 +129,19 @@ func main() {
 			case "в":
 				fmt.Print("v")
 			case "г":
-				if i == wl-2 && n == "о" && (p == "о" || p == "е" || p == "Е") {
-					fmt.Print("v")
-				} else if i < wl-2 && string(word[i:i+3]) == "го-" && (p == "о" || p == "е" || p == "Е") {
-					fmt.Print("v")
+				if p == "о" || p == "е" || p == "Е" {
+					if i == wl-2 && string(word[i:]) == "го" {
+						fmt.Print("vo")
+						i += 1
+					} else if i == wl-4 && string(word[i:]) == "гося" {
+						fmt.Print("vosa")
+						i += 3
+					} else if i < wl-4 && string(word[i:i+3]) == "го-" {
+						fmt.Print("vo-")
+						i += 2
+					} else {
+						fmt.Print("g")
+					}
 				} else {
 					fmt.Print("g")
 				}
@@ -186,7 +196,7 @@ func main() {
 			case "р":
 				fmt.Print("r")
 			case "с":
-				if i == wl-2 && n == "я" && (p == "у" || p == "ю" || p == "й" || p == "я" || p == "е" || p == "л" || p == "м" || p == "т" || p == "б" || p == "ь") {
+				if i == wl-2 && string(word[i:]) == "ся" && (p == "у" || p == "ю" || p == "й" || p == "я" || p == "е" || p == "л" || p == "м" || p == "т" || p == "б" || p == "ь") {
 					fmt.Print("sa")
 					i += 1
 				} else {
@@ -230,8 +240,10 @@ func main() {
 				} else if n == "и" {
 					fmt.Print("{\\yf}i")
 					i += 1
-				} else if i == wl-3 && (p == "т" || p == "ш") && n == "с" && string(word[wl-1]) == "я" {
-				} else if isFrict(p) && n == "" {
+				} else if i == wl-3 && string(word[i+1:]) == "ся" && (p == "т" || p == "ш") {
+					// skip
+				} else if i == wl-1 && isFrict(p) {
+					// skip
 				} else {
 					fmt.Print("y")
 				}
