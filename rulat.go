@@ -342,6 +342,7 @@ func exceptions() map[string]string {
 		"чувствовал":       "custvoval",
 		"чувствовала":      "custvovala",
 		"почувствовать":    "pocustvovaty",
+		"почувствовал":     "pocustvoval",
 		"предыдущая":       "predidu{\\x}a{\\y}a",
 		"предыдущего":      "predidu{\\x}evo",
 		"нехристю-хагжиту": "nechrist{\\iu}-hagjitu",
