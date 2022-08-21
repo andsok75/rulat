@@ -350,6 +350,7 @@ func exceptions() map[string]string {
 		"кондотьер":        "kondotier",
 		"кондотьера":       "kondotiera",
 		"гвардейцев-альбаландцев": "gvarde{\\y}{\\c}ev-albaland{\\c}ev",
+		"альбаландцев":            "albaland{\\c}ev",
 
 		"Иисусе":         "Iesuse",
 		"Христа":         "Christa",
