@@ -219,7 +219,7 @@ func main() {
 			case "щ":
 				fmt.Print("{\\x}")
 			case "ы":
-				if p == "ц" {
+				if isFrict(p) {
 					fmt.Print("i")
 				} else {
 					fmt.Print("{\\yi}")
@@ -351,11 +351,14 @@ func exceptions() map[string]string {
 		"Кондотьер":        "Kondotier",
 		"кондотьер":        "kondotier",
 		"кондотьера":       "kondotiera",
+		"терьер":           "terier",
 		"гвардейцев-альбаландцев": "gvarde{\\y}{\\c}ev-albaland{\\c}ev",
 		"альбаландцев":            "albaland{\\c}ev",
+		"альбаландец":             "albalande{\\c}",
 
 		"Иисусе":         "Iesuse",
 		"Христа":         "Christa",
+		"Христе":         "Christe",
 		"Христово":       "Christovo",
 		"Христовой":      "Christovo{\\y}",
 		"Михаила":        "Michaela",
@@ -395,6 +398,7 @@ func exceptions() map[string]string {
 		"Вальтером":      "Walterom",
 		"Нормайенн":      "Normaenn",
 		"Нормайенном":    "Normaennom",
+		"Нормайенна":     "Normaenna",
 		"Филипп":         "Philipp",
 		"Филиппу":        "Philippu",
 		"Филиппом":       "Philippom",
@@ -410,6 +414,8 @@ func exceptions() map[string]string {
 		"Чезаре":         "Cesare",
 		"Каварзере":      "Cavarzere",
 		"Ньюгорт":        "Newgord",
+		"Кошачьи":        "Koxac{\\y}i",
+		"Ханна":          "Hannah",
 	}
 }
 
