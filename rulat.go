@@ -196,7 +196,7 @@ func main() {
 			case "р":
 				fmt.Print("r")
 			case "с":
-				if i == wl-2 && string(word[i:]) == "ся" && (p == "у" || p == "ю" || p == "й" || p == "я" || p == "е" || p == "л" || p == "м" || p == "т" || p == "б" || p == "ь") {
+				if i == wl-2 && string(word[i:]) == "ся" && (p == "у" || p == "ю" || p == "й" || p == "я" || p == "е" || p == "л" || p == "м" || p == "т" || p == "б" || p == "ь" || p == "х") {
 					fmt.Print("sa")
 					i += 1
 				} else {
@@ -407,6 +407,7 @@ func exceptions() map[string]string {
 		"Лавендуззского": "Lavenduzskovo",
 		"Чезаре":         "Cesare",
 		"Каварзере":      "Cavarzere",
+		"Ньюгорт":        "Newgord",
 	}
 }
 
