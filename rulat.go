@@ -759,6 +759,7 @@ func exceptions() map[string]string {
 		"предыдущая":    "predidu{\\x}a{\\y}a",
 		"предыдущего":   "predidu{\\x}evo",
 		"собиравшимися": "sobiravximisa",
+		"стоит":         "stoit",
 	}
 }
 
