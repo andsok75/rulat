@@ -709,7 +709,7 @@ func exceptions() map[string]string {
 		"Травинно":       "Travino",
 		"Джулию":         "Juliyu",
 		"Адиль":          "Adil",
-		"Адиля":          "Adil{\\ia}",
+		"Адиля":          "Adila",
 		"аль":            "al",
 		"Джума":          "Juma",
 		"Лавендуззского": "Lavendusskovo",
