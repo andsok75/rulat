@@ -6,7 +6,7 @@ import (
 	"log"
 )
 
-const input_file = "./text"
+const input_file = "./detskiy"
 
 func main() {
 	content, err := ioutil.ReadFile(input_file)
@@ -332,6 +332,42 @@ func isPrefix(s string) bool {
 
 func exceptions() map[string]string {
 	return map[string]string{
+		"полицию":      "polici{\\y}u",
+		"полиции":      "polici{\\y}i",
+		"Полиции":      "Polici{\\y}i",
+		"полицейского": "police{\\y}skovo",
+		"центр":        "center",
+		"эхолокаторы":  "echolocator{\\yi}",
+		"рефлекторно":  "reflectorno",
+		"рациям":       "raci{\\y}am",
+		"концентратом": "concentratom",
+		"стерильности": "sterilnosti",
+		"спецагент":    "specagent",
+		"Спецагент":    "Specagent",
+		"спецагента":   "specagenta",
+		"спецагентов":  "specagentov",
+		"специальный":  "specialn{\\yi}{\\y}",
+		"гримасу":      "grimassu",
+		"гримаса":      "grimassa",
+		"регистр":      "register",
+		"ориентировку": "orientirovku",
+		"корневизору":  "kornevisoru",
+		"секретарь":    "secretary",
+		"секретаря":    "secretar{\\ia}",
+		"маньяк":       "maniac",
+		"маньяка":      "maniaca",
+		"маньяков":     "maniacov",
+		"Царём":        "Tsar{\\e}m",
+		"Царь":         "Tsar",
+		"царей-зверей": "tsare{\\y}-zvere{\\y}",
+		"формальность": "formalnosty",
+		"истерически":  "hystericeski",
+		"ультразвук":   "ultrazvuk",
+		"манере":       "maniere",
+		"шоке":         "choce",
+		"статистика":   "statistica",
+		"статистике":   "statistice",
+
 		"апокалипсис":         "apocalypsis",
 		"континент":           "continent",
 		"континента":          "continenta",
@@ -432,6 +468,7 @@ func exceptions() map[string]string {
 		"теорию":              "theori{\\y}u",
 		"теория":              "theori{\\y}a",
 		"теории":              "theori{\\y}i",
+		"Теоретически":        "Theoreticeski",
 		"Теория":              "Theori{\\y}a",
 		"Катастрофы":          "Catastroph{\\yi}",
 		"катастрофы":          "catastroph{\\yi}",
@@ -488,6 +525,7 @@ func exceptions() map[string]string {
 		"перспектива":         "perspectiva",
 		"перспективе":         "perspective",
 		"Конкретизируй":       "Concretiziru{\\y}",
+		"конкретно":           "concretno",
 		"конкретики":          "concretiki",
 		"канонизация":         "canoniza{\\c}i{\\y}a",
 		"каноник":             "canonik",
@@ -511,12 +549,14 @@ func exceptions() map[string]string {
 		"контраргумент":       "contrargument",
 		"дискредитировать":    "discreditirovaty",
 		"дискредитируют":      "discreditiru{\\y}ut",
+		"характер":            "character",
 		"характерную":         "characternu{\\y}u",
 		"характерных":         "charactern{\\yi}h",
 		"слабохарактерностью": "slabocharacternost{\\y}u",
 		"эмоций":              "emoti{\\y}",
 		"эмоции":              "emoti{\\y}i",
 		"эмоциям":             "emoti{\\y}am",
+		"эмоциональный":       "emotionaln{\\yi}{\\y}",
 		"нотацию":             "notati{\\y}u",
 		"этаже":               "etage",
 		"этажа":               "etaga",
@@ -760,6 +800,8 @@ func exceptions() map[string]string {
 		"предыдущего":   "predidu{\\x}evo",
 		"собиравшимися": "sobiravximisa",
 		"стоит":         "stoit",
+		"удостоил":      "udostoil",
+		"Неинтересно":   "Neiteresno",
 	}
 }
 
