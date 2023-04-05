@@ -827,25 +827,15 @@ const header = `\documentclass[12pt]{book}
 const commands = `
 \newcommand{\e}{ë}
 %\newcommand{\e}{e}
-%\newcommand{\e}{é}
-%\newcommand{\e}{ó}
 
 \newcommand{\yi}{\mbox{y\hspace{-0.55pt}ı}}
 %\newcommand{\yi}{yi}
-%\newcommand{\yi}{ǝ}
 
 \newcommand{\ia}{\mbox{ı\hspace{-0.55pt}a}}
 %\newcommand{\ia}{ia}
-%\newcommand{\ia}{ía}
-%\newcommand{\ia}{á}
 
 \newcommand{\iu}{\mbox{ı\hspace{-0.55pt}o}}
 %\newcommand{\iu}{io}
-%\newcommand{\iu}{ío}
-%\newcommand{\iu}{ıu}
-%\newcommand{\iu}{iu}
-%\newcommand{\iu}{íu}
-%\newcommand{\iu}{ú}
 
 \newcommand{\y}{y̆}
 \newcommand{\yf}{y̆}
@@ -859,47 +849,6 @@ const commands = `
 \newcommand{\C}{C̹}
 \renewcommand{\c}{c̹}
 
-% % mixed ogonek and q
-% \newcommand{\X}{X̨}
-% \newcommand{\x}{x̨}
-% \newcommand{\C}{Q}
-% \renewcommand{\c}{q}
-%
-% % ogonek
-% \newcommand{\X}{X̨}
-% \newcommand{\x}{x̨}
-% \newcommand{\C}{C̨}
-% \renewcommand{\c}{c̨}
-% 
-% % right half ring
-% \newcommand{\X}{X̹}
-% \newcommand{\x}{x̹}
-% \newcommand{\C}{C̹}
-% \renewcommand{\c}{c̹}
-%
-% % retroflex hook
-% \newcommand{\X}{X̢}
-% \newcommand{\x}{x̢}
-% \newcommand{\C}{C̢}
-% \renewcommand{\c}{c̢}
-% 
-% % cedilla
-% \newcommand{\X}{X̧}
-% \newcommand{\x}{x̧}
-% \newcommand{\C}{Ç}
-% \renewcommand{\c}{ç}
-% 
-% % hook
-% \newcommand{\X}{X̡}
-% \newcommand{\x}{x̡}
-% \newcommand{\C}{C̡}
-% \renewcommand{\c}{c̡}
-% 
-% % acute accent below
-% \newcommand{\X}{X̗}
-% \newcommand{\x}{x̗}
-% \newcommand{\C}{C̗}
-% \renewcommand{\c}{c̗}
 `
 
 const footer = `
