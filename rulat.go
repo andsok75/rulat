@@ -826,23 +826,20 @@ const header = `\documentclass[12pt]{book}
 
 const commands = `
 \newcommand{\e}{ë}
-%\newcommand{\e}{e}
-
 \newcommand{\yi}{\mbox{y\hspace{-0.55pt}ı}}
-%\newcommand{\yi}{yi}
-
 \newcommand{\ia}{\mbox{ı\hspace{-0.55pt}a}}
-%\newcommand{\ia}{ia}
-
 \newcommand{\io}{\mbox{ı\hspace{-0.55pt}o}}
-%\newcommand{\io}{io}
-
 \newcommand{\y}{y̆}
-\newcommand{\yf}{y̆}
-%\newcommand{\y}{y}
-
 \newcommand{\Y}{Y̆}
+
+%\newcommand{\e}{e}
+%\newcommand{\yi}{yi}
+%\newcommand{\ia}{ia}
+%\newcommand{\io}{io}
+%\newcommand{\y}{y}
 %\newcommand{\Y}{Y}
+
+\newcommand{\yf}{y̆}
 
 \newcommand{\X}{X̹}
 \newcommand{\x}{x̹}
