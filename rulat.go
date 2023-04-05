@@ -347,8 +347,9 @@ func exceptions() map[string]string {
 		"спецагента":   "specagenta",
 		"спецагентов":  "specagentov",
 		"специальный":  "specialn{\\yi}{\\y}",
-		"гримасу":      "grimassu",
-		"гримаса":      "grimassa",
+		"гримасу":      "grimasu",
+		"гримаса":      "grimasa",
+		"практически":  "practiceski",
 		"регистр":      "register",
 		"ориентировку": "orientirovku",
 		"корневизору":  "kornevisoru",
@@ -360,13 +361,18 @@ func exceptions() map[string]string {
 		"Царём":        "Tsar{\\e}m",
 		"Царь":         "Tsar",
 		"царей-зверей": "tsare{\\y}-zvere{\\y}",
+		"воцарился":    "votsarilsa",
+		"маразме":      "marasme",
 		"формальность": "formalnosty",
 		"истерически":  "hystericeski",
 		"ультразвук":   "ultrazvuk",
 		"манере":       "maniere",
-		"шоке":         "choce",
+		"шоке":         "schoke",
 		"статистика":   "statistica",
 		"статистике":   "statistice",
+		"нормальную":   "normalnu{\\y}u",
+		"контакт":      "contact",
+		"ритмично":     "rythmicno",
 
 		"апокалипсис":         "apocalypsis",
 		"континент":           "continent",
@@ -583,6 +589,7 @@ func exceptions() map[string]string {
 		"шпионов":             "spionov",
 		"жест":                "geste",
 		"жесте":               "geste",
+		"жестикулируя":        "gesticuliru{\\y}a",
 		"Трактаты":            "Tractat{\\yi}",
 		"эхом":                "echom",
 		"горнистов":           "hornistov",
@@ -609,7 +616,7 @@ func exceptions() map[string]string {
 		"центральную":         "centralnu{\\y}u",
 		"центральной":         "centralno{\\y}",
 		"зафиксированы":       "zafixirovan{\\yi}",
-		"механизм":            "machanism",
+		"механизм":            "mechanism",
 		"активнее":            "activne{\\y}e",
 		"кабинет":             "cabinet",
 		"официальная":         "officialna{\\y}a",
@@ -687,6 +694,8 @@ func exceptions() map[string]string {
 		"команды":             "command{\\yi}",
 		"Команда":             "Commanda",
 		"капризов":            "capricov",
+		"шанс":                "chance",
+		"Шанс":                "Chance",
 
 		"гвардейцев-альбаландцев": "guarde{\\y}{\\c}ev-albaland{\\c}ev",
 		"по-нарарски":             "po-nararrski",
@@ -695,6 +704,8 @@ func exceptions() map[string]string {
 		"беднягу-аптекаря":        "bedn{\\ia}gu-apothekar{\\ia}",
 		"клирики-тупицы":          "clerici-tupi{\\c}i",
 		"монах-привратник":        "monach-privratnik",
+		"Стриж-парикмахер":        "Strij-perukmacher",
+		"Стрижу-парикмахеру":      "Striju-perukmacheru",
 
 		"Иисусе":         "Iesuse",
 		"Христа":         "Christa",
@@ -781,6 +792,9 @@ func exceptions() map[string]string {
 		"каликвецев":     "callicve{\\c}ev",
 		"каликвеца":      "callicve{\\c}a",
 		"Прогансу":       "Progance",
+		"Чак":            "Chuck",
+		"Чака":           "Chucka",
+		"Уг":             "Ug",
 
 		"сегодня":       "sevodn{\\ia}",
 		"Сегодня":       "Sevodn{\\ia}",
@@ -805,7 +819,7 @@ func exceptions() map[string]string {
 	}
 }
 
-const header = `\documentclass[10pt]{book}
+const header = `\documentclass[12pt]{book}
 \usepackage{fontspec}
 \setmainfont{Linux Libertine O}
 \begin{document}
@@ -817,16 +831,16 @@ const commands = `
 %\newcommand{\e}{é}
 %\newcommand{\e}{ó}
 
-\newcommand{\yi}{yı}
+\newcommand{\yi}{\mbox{y\hspace{-0.55pt}ı}}
 %\newcommand{\yi}{yi}
 %\newcommand{\yi}{ǝ}
 
-\newcommand{\ia}{ıa}
+\newcommand{\ia}{\mbox{ı\hspace{-0.55pt}a}}
 %\newcommand{\ia}{ia}
 %\newcommand{\ia}{ía}
 %\newcommand{\ia}{á}
 
-\newcommand{\iu}{ıo}
+\newcommand{\iu}{\mbox{ı\hspace{-0.55pt}o}}
 %\newcommand{\iu}{io}
 %\newcommand{\iu}{ío}
 %\newcommand{\iu}{ıu}
