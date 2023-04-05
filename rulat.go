@@ -253,7 +253,7 @@ func main() {
 				if p == "" || isVowel(p) {
 					fmt.Print("{\\y}u")
 				} else {
-					fmt.Print("{\\iu}")
+					fmt.Print("{\\io}")
 				}
 			case "я":
 				if p == "" || isVowel(p) {
@@ -628,7 +628,7 @@ func exceptions() map[string]string {
 		"суккубов":            "succubov",
 		"сутана":              "soutana",
 		"сэкономим":           "seconomim",
-		"сэкономлю":           "seconoml{\\iu}",
+		"сэкономлю":           "seconoml{\\io}",
 		"сюртуке":             "surtuke",
 		"тему":                "themu",
 		"теологический":       "theologiceski{\\y}",
@@ -699,7 +699,7 @@ func exceptions() map[string]string {
 		"женщину-музыканта":       "jen{\\x}inu-musicanta",
 		"клирики-тупицы":          "clerici-tupi{\\c}i",
 		"монах-привратник":        "monach-privratnik",
-		"нехристю-хагжиту":        "nechrist{\\iu}-hagjitu",
+		"нехристю-хагжиту":        "nechrist{\\io}-hagjitu",
 		"по-нарарски":             "po-nararrski",
 		"Стриж-парикмахер":        "Strij-perukmacher",
 		"Стрижу-парикмахеру":      "Striju-perukmacheru",
@@ -762,7 +762,7 @@ func exceptions() map[string]string {
 		"Нарары":         "Nararr{\\yi}",
 		"Натан":          "Nathan",
 		"Натана":         "Nathana",
-		"нехристю":       "nechrist{\\iu}",
+		"нехристю":       "nechrist{\\io}",
 		"Нормайенн":      "Normaenn",
 		"Нормайенна":     "Normaenna",
 		"Нормайенном":    "Normaennom",
@@ -834,8 +834,8 @@ const commands = `
 \newcommand{\ia}{\mbox{ı\hspace{-0.55pt}a}}
 %\newcommand{\ia}{ia}
 
-\newcommand{\iu}{\mbox{ı\hspace{-0.55pt}o}}
-%\newcommand{\iu}{io}
+\newcommand{\io}{\mbox{ı\hspace{-0.55pt}o}}
+%\newcommand{\io}{io}
 
 \newcommand{\y}{y̆}
 \newcommand{\yf}{y̆}
