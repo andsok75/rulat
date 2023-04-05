@@ -6,7 +6,7 @@ import (
 	"log"
 )
 
-const input_file = "./detskiy"
+const input_file = "./text"
 
 func main() {
 	content, err := ioutil.ReadFile(input_file)
@@ -818,26 +818,26 @@ func exceptions() map[string]string {
 	}
 }
 
-const header = `\documentclass[12pt]{book}
+const header = `\documentclass[10pt]{book}
 \usepackage{fontspec}
 \setmainfont{Linux Libertine O}
 \begin{document}
 `
 
 const commands = `
-\newcommand{\e}{ë}
-\newcommand{\yi}{\mbox{y\hspace{-0.55pt}ı}}
-\newcommand{\ia}{\mbox{ı\hspace{-0.55pt}a}}
-\newcommand{\io}{\mbox{ı\hspace{-0.55pt}o}}
-\newcommand{\y}{y̆}
-\newcommand{\Y}{Y̆}
+%\newcommand{\e}{ë}
+%\newcommand{\yi}{\mbox{y\hspace{-0.55pt}ı}}
+%\newcommand{\ia}{\mbox{ı\hspace{-0.55pt}a}}
+%\newcommand{\io}{\mbox{ı\hspace{-0.55pt}o}}
+%\newcommand{\y}{y̆}
+%\newcommand{\Y}{Y̆}
 
-%\newcommand{\e}{e}
-%\newcommand{\yi}{yi}
-%\newcommand{\ia}{ia}
-%\newcommand{\io}{io}
-%\newcommand{\y}{y}
-%\newcommand{\Y}{Y}
+\newcommand{\e}{e}
+\newcommand{\yi}{yi}
+\newcommand{\ia}{ia}
+\newcommand{\io}{io}
+\newcommand{\y}{y}
+\newcommand{\Y}{Y}
 
 \newcommand{\yf}{y̆}
 
