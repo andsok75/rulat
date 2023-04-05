@@ -501,7 +501,7 @@ func exceptions() map[string]string {
 		"короной":             "corono{\\y}",
 		"кретины":             "cretin{\\yi}",
 		"критическую":         "criticesku{\\y}u",
-		"курсе":               "curse",
+		"курсе":               "kurse",
 		"Курьер":              "Courier",
 		"курьера":             "couriera",
 		"лабиринт":            "labyrinth",
