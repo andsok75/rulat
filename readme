@@ -1,0 +1,3 @@
+go run . -i text >text.tex && xelatex text.tex
+go run . -d -i detskiy > detskiy.tex && xelatex detskiy.tex 
+

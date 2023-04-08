@@ -1,273 +1,291 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"io/ioutil"
 	"log"
+	"strings"
 )
 
-const input_file = "./text"
-
 func main() {
-	content, err := ioutil.ReadFile(input_file)
+	var input string
+	var detskiy bool
+
+	flag.StringVar(&input, "i", "text", "Input text")
+	flag.BoolVar(&detskiy, "d", false, "Detskiy text")
+	flag.Parse()
+
+	content, err := ioutil.ReadFile(input)
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	items := getItems(string(content))
 
-	fmt.Print(header)
-	fmt.Print(commands)
+	if detskiy {
+		fmt.Print(headerDetskiy)
+	} else {
+		fmt.Print(header)
+	}
 
 	for _, item := range items {
-		if !item.isWord {
-			switch item.content {
-			case "«":
-				fmt.Print("``")
-			case "»":
-				fmt.Print("\"")
-			default:
-				fmt.Print(item.content)
-			}
-			continue
-		}
-		if v, ok := exceptions()[item.content]; ok {
-			fmt.Print(v)
-			continue
-		}
-
-		log.Printf("processing *%s*", item.content)
-		word := []rune(item.content)
-		wl := len(word)
-		p := ""
-		n := ""
-		for i := 0; i < wl; i++ {
-			c := string(word[i])
-			if i > 0 {
-				p = string(word[i-1])
-			} else {
-				p = ""
-			}
-			if i < wl-1 {
-				n = string(word[i+1])
-			} else {
-				n = ""
-			}
-			switch c {
-			case "-":
-				fmt.Print("-")
-			case "А":
-				fmt.Print("A")
-			case "Б":
-				fmt.Print("B")
-			case "В":
-				fmt.Print("V")
-			case "Г":
-				fmt.Print("G")
-			case "Д":
-				fmt.Print("D")
-			case "Е":
-				fmt.Print("{\\Y}e")
-			case "Ё":
-				fmt.Print("{\\Y}o")
-			case "Ж":
-				fmt.Print("J")
-			case "З":
-				fmt.Print("Z")
-			case "И":
-				fmt.Print("I")
-			case "Й":
-				fmt.Print("{\\Y}")
-			case "К":
-				fmt.Print("K")
-			case "Л":
-				fmt.Print("L")
-			case "М":
-				fmt.Print("M")
-			case "Н":
-				fmt.Print("N")
-			case "О":
-				fmt.Print("O")
-			case "П":
-				fmt.Print("P")
-			case "Р":
-				fmt.Print("R")
-			case "С":
-				fmt.Print("S")
-			case "Т":
-				fmt.Print("T")
-			case "У":
-				fmt.Print("U")
-			case "Ф":
-				fmt.Print("F")
-			case "Х":
-				fmt.Print("H")
-			case "Ц":
-				fmt.Print("{\\C}")
-			case "Ч":
-				fmt.Print("C")
-			case "Ш":
-				fmt.Print("X")
-			case "Щ":
-				fmt.Print("{\\X}")
-			case "Ъ":
-				fmt.Print("Y")
-			case "Ы":
-				fmt.Print("YI")
-			case "Ь":
-				fmt.Print("Y")
-			case "Э":
-				fmt.Print("E")
-			case "Ю":
-				fmt.Print("{\\Y}u")
-			case "Я":
-				fmt.Print("{\\Y}a")
-			case "а":
-				fmt.Print("a")
-			case "б":
-				fmt.Print("b")
-			case "в":
-				fmt.Print("v")
-			case "г":
-				if p == "о" || p == "е" || p == "Е" {
-					if i == wl-2 && string(word[i:]) == "го" {
-						fmt.Print("vo")
-						i += 1
-					} else if i == wl-4 && string(word[i:]) == "гося" {
-						fmt.Print("vosa")
-						i += 3
-					} else if i < wl-4 && string(word[i:i+3]) == "го-" {
-						fmt.Print("vo-")
-						i += 2
-					} else {
-						fmt.Print("g")
-					}
-				} else {
-					fmt.Print("g")
-				}
-			case "д":
-				fmt.Print("d")
-			case "е":
-				if p == "" || isVowel(p) {
-					fmt.Print("{\\y}e")
-				} else {
-					fmt.Print("e")
-				}
-			case "ё":
-				if p == "" || isVowel(p) {
-					fmt.Print("{\\y}o")
-				} else {
-					if isFrict(p) {
-						fmt.Print("o")
-					} else {
-						fmt.Print("{\\e}")
-					}
-				}
-			case "ж":
-				fmt.Print("j")
-			case "з":
-				fmt.Print("z")
-			case "и":
-				if isVowel(p) {
-					if i == 3 && isPrefix(string(word[:3])) {
-						fmt.Print("i")
-					} else if i == 2 && isPrefix(string(word[:2])) {
-						fmt.Print("i")
-					} else {
-						fmt.Print("{\\y}i")
-					}
-				} else {
-					fmt.Print("i")
-				}
-			case "й":
-				fmt.Print("{\\y}")
-			case "к":
-				fmt.Print("k")
-			case "л":
-				fmt.Print("l")
-			case "м":
-				fmt.Print("m")
-			case "н":
-				fmt.Print("n")
-			case "о":
-				fmt.Print("o")
-			case "п":
-				fmt.Print("p")
-			case "р":
-				fmt.Print("r")
-			case "с":
-				if i == wl-2 && string(word[i:]) == "ся" && (p == "у" || p == "ю" || p == "й" || p == "и" || p == "я" || p == "е" || p == "л" || p == "м" || p == "т" || p == "б" || p == "ь" || p == "х" || p == "г") {
-					fmt.Print("sa")
-					i += 1
-				} else {
-					fmt.Print("s")
-				}
-			case "т":
-				fmt.Print("t")
-			case "у":
-				fmt.Print("u")
-			case "ф":
-				fmt.Print("f")
-			case "х":
-				fmt.Print("h")
-			case "ц":
-				fmt.Print("{\\c}")
-			case "ч":
-				fmt.Print("c")
-			case "ш":
-				fmt.Print("x")
-			case "щ":
-				fmt.Print("{\\x}")
-			case "ы":
-				if isFrict(p) {
-					fmt.Print("i")
-				} else {
-					fmt.Print("{\\yi}")
-				}
-			case "ъ", "ь":
-				if n == "ю" {
-					fmt.Print("{\\y}u")
-					i += 1
-				} else if n == "я" {
-					fmt.Print("{\\y}a")
-					i += 1
-				} else if n == "ё" {
-					fmt.Print("{\\y}o")
-					i += 1
-				} else if n == "е" {
-					fmt.Print("{\\y}e")
-					i += 1
-				} else if n == "и" {
-					fmt.Print("{\\yf}i")
-					i += 1
-				} else if i == wl-3 && string(word[i+1:]) == "ся" && (p == "т" || p == "ш") {
-					// skip
-				} else if i == wl-1 && isFrict(p) {
-					// skip
-				} else {
-					fmt.Print("y")
-				}
-			case "э":
-				fmt.Print("e")
-			case "ю":
-				if p == "" || isVowel(p) {
-					fmt.Print("{\\y}u")
-				} else {
-					fmt.Print("{\\io}")
-				}
-			case "я":
-				if p == "" || isVowel(p) {
-					fmt.Print("{\\y}a")
-				} else {
-					fmt.Print("{\\ia}")
-				}
-			default:
-				log.Fatalf("not valid: *%s*", c)
-			}
-		}
+		s := item2string(item)
+		fmt.Print(s)
 	}
 
 	fmt.Print(footer)
+}
+
+func item2string(item Item) string {
+	if !item.isWord {
+		switch item.content {
+		case "«":
+			return "``"
+		case "»":
+			return "\""
+		default:
+			return item.content
+		}
+	}
+	if v, ok := exceptions()[item.content]; ok {
+		return v
+	}
+
+	word := []rune(item.content)
+	return word2string(word)
+}
+
+func word2string(word []rune) string {
+	s := []string{}
+	wl := len(word)
+	p := ""
+	n := ""
+	for i := 0; i < wl; i++ {
+		c := string(word[i])
+		if i > 0 {
+			p = string(word[i-1])
+		} else {
+			p = ""
+		}
+		if i < wl-1 {
+			n = string(word[i+1])
+		} else {
+			n = ""
+		}
+		switch c {
+		case "-":
+			s = append(s, "-")
+		case "А":
+			s = append(s, "A")
+		case "Б":
+			s = append(s, "B")
+		case "В":
+			s = append(s, "V")
+		case "Г":
+			s = append(s, "G")
+		case "Д":
+			s = append(s, "D")
+		case "Е":
+			s = append(s, "{\\Y}e")
+		case "Ё":
+			s = append(s, "{\\Y}o")
+		case "Ж":
+			s = append(s, "J")
+		case "З":
+			s = append(s, "Z")
+		case "И":
+			s = append(s, "I")
+		case "Й":
+			s = append(s, "{\\Y}")
+		case "К":
+			s = append(s, "K")
+		case "Л":
+			s = append(s, "L")
+		case "М":
+			s = append(s, "M")
+		case "Н":
+			s = append(s, "N")
+		case "О":
+			s = append(s, "O")
+		case "П":
+			s = append(s, "P")
+		case "Р":
+			s = append(s, "R")
+		case "С":
+			s = append(s, "S")
+		case "Т":
+			s = append(s, "T")
+		case "У":
+			s = append(s, "U")
+		case "Ф":
+			s = append(s, "F")
+		case "Х":
+			s = append(s, "H")
+		case "Ц":
+			s = append(s, "{\\C}")
+		case "Ч":
+			s = append(s, "C")
+		case "Ш":
+			s = append(s, "X")
+		case "Щ":
+			s = append(s, "{\\X}")
+		case "Ъ":
+			s = append(s, "Y")
+		case "Ы":
+			s = append(s, "YI")
+		case "Ь":
+			s = append(s, "Y")
+		case "Э":
+			s = append(s, "E")
+		case "Ю":
+			s = append(s, "{\\Y}u")
+		case "Я":
+			s = append(s, "{\\Y}a")
+		case "а":
+			s = append(s, "a")
+		case "б":
+			s = append(s, "b")
+		case "в":
+			s = append(s, "v")
+		case "г":
+			if p == "о" || p == "е" || p == "Е" {
+				if i == wl-2 && string(word[i:]) == "го" {
+					s = append(s, "vo")
+					i += 1
+				} else if i == wl-4 && string(word[i:]) == "гося" {
+					s = append(s, "vosa")
+					i += 3
+				} else if i < wl-4 && string(word[i:i+3]) == "го-" {
+					s = append(s, "vo-")
+					i += 2
+				} else {
+					s = append(s, "g")
+				}
+			} else {
+				s = append(s, "g")
+			}
+		case "д":
+			s = append(s, "d")
+		case "е":
+			if p == "" || isVowel(p) {
+				s = append(s, "{\\y}e")
+			} else {
+				s = append(s, "e")
+			}
+		case "ё":
+			if p == "" || isVowel(p) {
+				s = append(s, "{\\y}o")
+			} else {
+				if isFrict(p) {
+					s = append(s, "o")
+				} else {
+					s = append(s, "{\\e}")
+				}
+			}
+		case "ж":
+			s = append(s, "j")
+		case "з":
+			s = append(s, "z")
+		case "и":
+			if isVowel(p) {
+				if i == 3 && isPrefix(string(word[:3])) {
+					s = append(s, "i")
+				} else if i == 2 && isPrefix(string(word[:2])) {
+					s = append(s, "i")
+				} else {
+					s = append(s, "{\\y}i")
+				}
+			} else {
+				s = append(s, "i")
+			}
+		case "й":
+			s = append(s, "{\\y}")
+		case "к":
+			s = append(s, "k")
+		case "л":
+			s = append(s, "l")
+		case "м":
+			s = append(s, "m")
+		case "н":
+			s = append(s, "n")
+		case "о":
+			s = append(s, "o")
+		case "п":
+			s = append(s, "p")
+		case "р":
+			s = append(s, "r")
+		case "с":
+			if i == wl-2 && string(word[i:]) == "ся" && (p == "у" || p == "ю" || p == "й" || p == "и" || p == "я" || p == "е" || p == "л" || p == "м" || p == "т" || p == "б" || p == "ь" || p == "х" || p == "г") {
+				s = append(s, "sa")
+				i += 1
+			} else {
+				s = append(s, "s")
+			}
+		case "т":
+			s = append(s, "t")
+		case "у":
+			s = append(s, "u")
+		case "ф":
+			s = append(s, "f")
+		case "х":
+			s = append(s, "h")
+		case "ц":
+			s = append(s, "{\\c}")
+		case "ч":
+			s = append(s, "c")
+		case "ш":
+			s = append(s, "x")
+		case "щ":
+			s = append(s, "{\\x}")
+		case "ы":
+			if isFrict(p) {
+				s = append(s, "i")
+			} else {
+				s = append(s, "{\\yi}")
+			}
+		case "ъ", "ь":
+			if n == "ю" {
+				s = append(s, "{\\y}u")
+				i += 1
+			} else if n == "я" {
+				s = append(s, "{\\y}a")
+				i += 1
+			} else if n == "ё" {
+				s = append(s, "{\\y}o")
+				i += 1
+			} else if n == "е" {
+				s = append(s, "{\\y}e")
+				i += 1
+			} else if n == "и" {
+				s = append(s, "{\\yf}i")
+				i += 1
+			} else if i == wl-3 && string(word[i+1:]) == "ся" && (p == "т" || p == "ш") {
+				// skip
+			} else if i == wl-1 && isFrict(p) {
+				// skip
+			} else {
+				s = append(s, "y")
+			}
+		case "э":
+			s = append(s, "e")
+		case "ю":
+			if p == "" || isVowel(p) {
+				s = append(s, "{\\y}u")
+			} else {
+				s = append(s, "{\\io}")
+			}
+		case "я":
+			if p == "" || isVowel(p) {
+				s = append(s, "{\\y}a")
+			} else {
+				s = append(s, "{\\ia}")
+			}
+		default:
+			log.Fatalf("not valid: *%s*", c)
+		}
+	}
+	return strings.Join(s, "")
 }
 
 func isVowel(c string) bool {
@@ -328,6 +346,20 @@ func getItems(s string) []Item {
 
 func isPrefix(s string) bool {
 	return s == "про" || s == "по" || s == "за" || s == "на" || s == "не" || s == "Пред"
+}
+
+func hythenation() map[string]string {
+	return map[string]string{
+		"bezoxibocno":             "bez\\-oxi\\-boc\\-no",
+		"rukokr{\\yi}l{\\y}ami":   "ru\\-ko\\-kr{\\yi}\\-l{\\y}a\\-mi",
+		"prezritelynu{\\y}u":      "pre\\-zri\\-tely\\-nu\\-{\\y}u",
+		"imenovala":               "ime\\-no\\-va\\-la",
+		"emotionalyn{\\yi}{\\y},": "emo\\-ti\\-o\\-naly\\-n{\\yi}{\\y}",
+		"p{\\ia}timinutku:":       "p{\\ia}\\-ti\\-mi\\-nut\\-ku",
+		"skolyko":                 "skoly\\-ko",
+		"odnajd{\\yi}":            "od\\-naj\\-d{\\yi}",
+		"normalynu{\\y}u":         "nor\\-maly\\-nu\\-{\\y}u",
+	}
 }
 
 func exceptions() map[string]string {
@@ -822,15 +854,6 @@ const header = `\documentclass[10pt]{book}
 \usepackage{fontspec}
 \setmainfont{Linux Libertine O}
 \begin{document}
-`
-
-const commands = `
-%\newcommand{\e}{ë}
-%\newcommand{\yi}{\mbox{y\hspace{-0.55pt}ı}}
-%\newcommand{\ia}{\mbox{ı\hspace{-0.55pt}a}}
-%\newcommand{\io}{\mbox{ı\hspace{-0.55pt}o}}
-%\newcommand{\y}{y̆}
-%\newcommand{\Y}{Y̆}
 
 \newcommand{\e}{e}
 \newcommand{\yi}{yi}
@@ -838,6 +861,27 @@ const commands = `
 \newcommand{\io}{io}
 \newcommand{\y}{y}
 \newcommand{\Y}{Y}
+
+\newcommand{\yf}{y̆}
+
+\newcommand{\X}{X̹}
+\newcommand{\x}{x̹}
+\newcommand{\C}{C̹}
+\renewcommand{\c}{c̹}
+
+`
+
+const headerDetskiy = `\documentclass[12pt]{book}
+\usepackage{fontspec}
+\setmainfont{Linux Libertine O}
+\begin{document}
+
+\newcommand{\e}{ë}
+\newcommand{\yi}{\mbox{y\hspace{-0.55pt}ı}}
+\newcommand{\ia}{\mbox{ı\hspace{-0.55pt}a}}
+\newcommand{\io}{\mbox{ı\hspace{-0.55pt}o}}
+\newcommand{\y}{y̆}
+\newcommand{\Y}{Y̆}
 
 \newcommand{\yf}{y̆}
 
