@@ -31,7 +31,11 @@ func main() {
 
 	for _, item := range items {
 		s := item2string(item)
-		fmt.Print(s)
+		if h, ok := hythenation()[s]; ok {
+			fmt.Print(h)
+		} else {
+			fmt.Print(s)
+		}
 	}
 
 	fmt.Print(footer)
@@ -346,20 +350,6 @@ func getItems(s string) []Item {
 
 func isPrefix(s string) bool {
 	return s == "про" || s == "по" || s == "за" || s == "на" || s == "не" || s == "Пред"
-}
-
-func hythenation() map[string]string {
-	return map[string]string{
-		"bezoxibocno":             "bez\\-oxi\\-boc\\-no",
-		"rukokr{\\yi}l{\\y}ami":   "ru\\-ko\\-kr{\\yi}\\-l{\\y}a\\-mi",
-		"prezritelynu{\\y}u":      "pre\\-zri\\-tely\\-nu\\-{\\y}u",
-		"imenovala":               "ime\\-no\\-va\\-la",
-		"emotionalyn{\\yi}{\\y},": "emo\\-ti\\-o\\-naly\\-n{\\yi}{\\y}",
-		"p{\\ia}timinutku:":       "p{\\ia}\\-ti\\-mi\\-nut\\-ku",
-		"skolyko":                 "skoly\\-ko",
-		"odnajd{\\yi}":            "od\\-naj\\-d{\\yi}",
-		"normalynu{\\y}u":         "nor\\-maly\\-nu\\-{\\y}u",
-	}
 }
 
 func exceptions() map[string]string {
@@ -847,6 +837,29 @@ func exceptions() map[string]string {
 		"чувствовал":    "custvoval",
 		"чувствовала":   "custvovala",
 		"чувствуя":      "custvu{\\y}a",
+	}
+}
+
+func hythenation() map[string]string {
+	return map[string]string{
+		"bezoxibocno":               "bez\\-oxi\\-boc\\-no",
+		"rukokr{\\yi}l{\\y}ami":     "ru\\-ko\\-kr{\\yi}\\-l{\\y}a\\-mi",
+		"prezritelynu{\\y}u":        "pre\\-zri\\-tely\\-nu\\-{\\y}u",
+		"imenovala":                 "ime\\-no\\-va\\-la",
+		"emotionalyn{\\yi}{\\y}":    "emo\\-ti\\-o\\-naly\\-n{\\yi}{\\y}",
+		"p{\\ia}timinutku":          "p{\\ia}\\-ti\\-mi\\-nut\\-ku",
+		"p{\\ia}timinutki":          "p{\\ia}\\-ti\\-mi\\-nut\\-ki",
+		"skolyko":                   "skoly\\-ko",
+		"odnajd{\\yi}":              "od\\-naj\\-d{\\yi}",
+		"normalynu{\\y}u":           "nor\\-maly\\-nu\\-{\\y}u",
+		"kotor{\\yi}mi":             "ko\\-to\\-r{\\yi}\\-mi",
+		"v{\\yi}sokovo":             "v{\\yi}\\-so\\-ko\\-vo",
+		"cerv{\\e}m":                "cer\\-v{\\e}m",
+		"podozreva{\\y}em{\\yi}m":   "po\\-do\\-zre\\-va\\-{\\y}e\\-m{\\yi}m",
+		"pogovority":                "po\\-go\\-vo\\-rity",
+		"v{\\yi}da{\\y}u{\\x}imisa": "v{\\yi}\\-da\\-{\\y}u\\-{\\x}i\\-misa",
+		"svodn{\\yi}{\\y}":          "svod\\-n{\\yi}{\\y}",
+		"Otpravl{\\ia}{\\y}tesy":    "Ot\\-prav\\-l{\\ia}{\\y}\\-tesy",
 	}
 }
 
