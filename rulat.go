@@ -648,6 +648,7 @@ func exceptions() map[string]string {
 		"стерильности":        "sterilynosti",
 		"субъект":             "subject",
 		"суккубов":            "succubov",
+		"суп":                 "soupe",
 		"сутана":              "soutana",
 		"сэкономим":           "seconomim",
 		"сэкономлю":           "seconoml{\\io}",
