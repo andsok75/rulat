@@ -840,7 +840,7 @@ func exceptions() map[string]string {
 		"чувствовал":    "custvoval",
 		"чувствовала":   "custvovala",
 		"чувствуя":      "custvu{\\y}a",
-		//"обиграть":      "obigraty",
+		"обыграть":      "obigraty",
 	}
 }
 
@@ -930,6 +930,8 @@ func hythenation() map[string]string {
 		"goroda":                    "go\\-ro\\-da",
 		"loxadymi":                  "lo\\-xady\\-mi",
 		"doroge":                    "do\\-ro\\-ge",
+		"obigraty":                  "ob\\-igraty",
+		"blockieroval":              "blo\\-ckie\\-ro\\-val",
 	}
 }
 
