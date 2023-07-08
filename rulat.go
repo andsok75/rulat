@@ -416,8 +416,8 @@ func exceptions() map[string]string {
 		"дукатов":             "ducatov",
 		"дьявол":              "diavol",
 		"дьяволопоклонника":   "diavolopoklonnika",
-		"дьявольских":         "diavolskih",
-		"дьявольское":         "diavolsko{\\y}e",
+		"дьявольских":         "diavolyskih",
+		"дьявольское":         "diavolysko{\\y}e",
 		"епископ":             "episkop",
 		"епископа":            "episkopa",
 		"Епископская":         "Episkopska{\\y}a",
@@ -961,6 +961,21 @@ func hyphenation() map[string]string {
 		"unictojen{\\yi}":         "uni\\-cto\\-jen{\\yi}",
 		"Realynu{\\y}u":           "Realy\\-nu\\-{\\y}u",
 		"dover{\\ia}ty":           "dove\\-r{\\ia}ty",
+		"diavolyskih":             "diavoly\\-skih",
+		"ogromn{\\yi}m":           "ogrom\\-n{\\yi}m",
+		"sbora":                   "sbo\\-ra",
+		"r{\\yi}jevat{\\yi}mi":    "r{\\yi}je\\-va\\-t{\\yi}\\-mi",
+		"pripodn{\\ia}lsa":        "pri\\-podn{\\ia}l\\-sa",
+		"zvezdcat{\\yi}{\\y}":     "zvezdca\\-t{\\yi}{\\y}",
+		"prenebrejitelyn{\\yi}m":  "pre\\-nebreji\\-tely\\-n{\\yi}m",
+		"ime{\\y}etsa":            "ime\\-{\\y}et\\-sa",
+		"prot{\\ia}nul":           "pro\\-t{\\ia}\\-nul",
+		"ognenn{\\yi}{\\y}":       "ognen\\-n{\\yi}{\\y}",
+		"turemn{\\yi}{\\y}":       "turem\\-n{\\yi}{\\y}",
+		"pust{\\yi}nnom":          "pu\\-st{\\yi}n\\-nom",
+
+		"st{\\ia}giva{\\y}u{\\x}i{\\y}e":     "st{\\ia}gi\\-va\\-{\\y}u\\-{\\x}i\\-{\\y}e",
+		"v{\\yi}sokopreosv{\\ia}{\\x}enstva": "v{\\yi}soko\\-preosv{\\ia}{\\x}en\\-st\\-va",
 	}
 }
 
