@@ -11,9 +11,11 @@ import (
 func main() {
 	var input string
 	var detskiy bool
+	var size int
 
-	flag.StringVar(&input, "i", "text", "Input text")
+	flag.StringVar(&input, "i", "text", "Input text file name")
 	flag.BoolVar(&detskiy, "d", false, "Detskiy text")
+	flag.IntVar(&size, "s", 0, "Font size")
 	flag.Parse()
 
 	content, err := ioutil.ReadFile(input)
@@ -24,14 +26,14 @@ func main() {
 	items := getItems(string(content))
 
 	if detskiy {
-		fmt.Print(headerDetskiy)
+		fmt.Printf(headerDetskiy, size)
 	} else {
-		fmt.Print(header)
+		fmt.Printf(header, size)
 	}
 
 	for _, item := range items {
 		s := item2string(item)
-		if h, ok := hythenation()[s]; ok {
+		if h, ok := hyphenation()[s]; ok {
 			fmt.Print(h)
 		} else {
 			fmt.Print(s)
@@ -844,7 +846,7 @@ func exceptions() map[string]string {
 	}
 }
 
-func hythenation() map[string]string {
+func hyphenation() map[string]string {
 	return map[string]string{
 		"bezoxibocno":                  "bez\\-oxi\\-boc\\-no",
 		"rukokr{\\yi}l{\\y}ami":        "ru\\-ko\\-kr{\\yi}\\-l{\\y}a\\-mi",
@@ -944,10 +946,25 @@ func hythenation() map[string]string {
 		"prokl{\\ia}t{\\yi}h":          "pro\\-kl{\\ia}\\-t{\\yi}h",
 		"na{\\y}omnika":                "na\\-{\\y}om\\-ni\\-ka",
 		"nevajno":                      "ne\\-vaj\\-no",
+
+		"b{\\yi}va{\\y}et":        "b{\\yi}\\-va\\-{\\y}et",
+		"organizovann{\\yi}{\\y}": "organi\\-zo\\-van\\-n{\\yi}{\\y}",
+		"v{\\yi}polnity":          "v{\\yi}\\-pol\\-nity",
+		"prot{\\ia}nula":          "pro\\-t{\\ia}\\-nu\\-la",
+		"raspolojenn{\\yi}{\\y}":  "raspolojen\\-n{\\yi}{\\y}",
+		"cerepicn{\\yi}mi":        "cerepic\\-n{\\yi}\\-mi",
+		"neuhojenn{\\yi}{\\y}":    "neuhojen\\-n{\\yi}{\\y}",
+		"musicalynovo":            "musicaly\\-no\\-vo",
+		"govor{\\ia}":             "go\\-vo\\-r{\\ia}",
+		"rabotal":                 "ra\\-bo\\-tal",
+		"kozlin{\\yi}mi":          "kozlin{\\yi}\\-mi",
+		"unictojen{\\yi}":         "uni\\-cto\\-jen{\\yi}",
+		"Realynu{\\y}u":           "Realy\\-nu\\-{\\y}u",
+		"dover{\\ia}ty":           "dove\\-r{\\ia}ty",
 	}
 }
 
-const header = `\documentclass[10pt]{book}
+const header = `\documentclass[%dpt]{book}
 \usepackage{fontspec}
 \setmainfont{Linux Libertine O}
 \begin{document}
@@ -968,7 +985,7 @@ const header = `\documentclass[10pt]{book}
 
 `
 
-const headerDetskiy = `\documentclass[12pt]{book}
+const headerDetskiy = `\documentclass[%dpt]{book}
 \usepackage{fontspec}
 \setmainfont{Linux Libertine O}
 \begin{document}
