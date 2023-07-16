@@ -25,7 +25,7 @@ Takje i bukva _e_ ne upotrebliayetsa v nacale slov i posle glasnyih za redkimi i
 Bukva _ъ_ ne imeyet ekvivalenta vovse tak kak yeyo funkc̹iya ne trebuyetsa.
 Naprimer: _y̆abloko_, _priy̆atnyıy̆_, _y̆olka_, _y̆ujnyıy̆_, _y̆esli_, _hozıay̆in_, _v zdaniy̆i_, _oty̆ehaty_, _oby̆om_, _vy̆uga_. Boleye obyomnyiy primer ![1](/starobinets.pdf).
 
-## Uprox̹onniye formyi
+## Uprox̹onnyiye formyi
 
 Dopuskayutsa sleduyux̹iye uprox̹onniye formyi:
 | ishodnaya | uprox̹onnaya  |
