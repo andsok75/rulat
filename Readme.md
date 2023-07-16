@@ -25,7 +25,7 @@ V nacale slov i posle glasnyih pixem _y̆o_, _y̆u_, _y̆a_.
 Takje i bukva _e_ ne upotrebliayetsa v nacale slov i posle soglasnyih za redkimi isklioceniyami
 (_eto_, _poetomu_), vmesto etovo pixem _y̆e_.
 Bukva _ъ_ ne imeyet ekvivalenta vovse tak kak yeyo funkc̹iya ne trebuyetsa.
-Naprimer: y̆abloko, priy̆atnyıy̆, y̆olka, y̆ujnyıy̆, y̆esli, hozıay̆in, v zdaniy̆i, oty̆ehaty, oby̆om, vy̆uga. Boleye obyomnyiy primer v ![](/example.pdf).
+Naprimer: y̆abloko, priy̆atnyıy̆, y̆olka, y̆ujnyıy̆, y̆esli, hozıay̆in, v zdaniy̆i, oty̆ehaty, oby̆om, vy̆uga. Boleye obyomnyiy primer ![1](/example.pdf).
 
 Dopuskayetsa sleduyux̹eye uprox̹onniye formyi:
 | ishodnaya | uprox̹onnaya  |
@@ -44,7 +44,7 @@ s
 
 > Pod kopyita moyey loxadi brosilsa nix̹iy, vopia, cto griadet konec̹ sveta i ya doljen pokayatsa i otdaty yemu vse denygi. Odnako, poniav, cto ya ne otlicayusy osoboy nabojnostyu, on tut je zabyil obo mne i pristal k dvum dorodnyim kupc̹am, kotoryiye byili neskolyko perepuganyi tem bezumiyem, cto proishodilo vokrug.
 
-Boleye obyomnyiy primer v ![](/example_simplified.pdf).
+Boleye obyomnyiy primer ![2](/example_simplified.pdf).
 
 Oba primera sdelanyi s ispolyzovaniyem Golang 1.18 and Tex Live 2023.
 
