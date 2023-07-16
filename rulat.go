@@ -3,32 +3,41 @@ package main
 import (
 	"flag"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"log"
+	"os"
 	"strings"
 )
 
 func main() {
-	var input string
-	var detskiy bool
-	var size int
+	var inputName string
+	var simplified bool
+	var fontSize int
 
-	flag.StringVar(&input, "i", "text", "Input text file name")
-	flag.BoolVar(&detskiy, "d", false, "Detskiy text")
-	flag.IntVar(&size, "s", 0, "Font size")
+	flag.StringVar(&inputName, "i", "-", "Input file name")
+	flag.BoolVar(&simplified, "s", false, "Use simplified characters")
+	flag.IntVar(&fontSize, "f", 12, "Font size")
 	flag.Parse()
 
-	content, err := ioutil.ReadFile(input)
+	var err error
+	var input io.Reader = os.Stdin
+	if inputName != "-" {
+		input, err = os.Open(inputName)
+		if err != nil {
+			log.Fatal(err)
+		}
+	}
+	content, err := io.ReadAll(input)
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	items := getItems(string(content))
 
-	if detskiy {
-		fmt.Printf(headerDetskiy, size)
-	} else {
-		fmt.Printf(header, size)
+	fmt.Printf(header, fontSize)
+	fmt.Print(chars)
+	if simplified {
+		fmt.Print(charsSimplified)
 	}
 
 	for _, item := range items {
@@ -264,7 +273,7 @@ func word2string(word []rune) string {
 				s = append(s, "{\\y}e")
 				i += 1
 			} else if n == "и" {
-				s = append(s, "{\\yf}i")
+				s = append(s, "{\\y}i")
 				i += 1
 			} else if i == wl-3 && string(word[i+1:]) == "ся" && (p == "т" || p == "ш") {
 				// skip
@@ -689,26 +698,12 @@ const header = `\documentclass[%dpt]{book}
 \setmainfont{Linux Libertine O}
 \begin{document}
 
-\newcommand{\e}{e}
-\newcommand{\yi}{yi}
-\newcommand{\ia}{ia}
-\newcommand{\io}{io}
-\newcommand{\y}{y}
-\newcommand{\Y}{Y}
+`
 
-\newcommand{\yf}{y̆}
-
-\newcommand{\X}{X̹}
+const chars = `\newcommand{\X}{X̹}
 \newcommand{\x}{x̹}
 \newcommand{\C}{C̹}
 \renewcommand{\c}{c̹}
-
-`
-
-const headerDetskiy = `\documentclass[%dpt]{book}
-\usepackage{fontspec}
-\setmainfont{Linux Libertine O}
-\begin{document}
 
 \newcommand{\e}{ë}
 \newcommand{\yi}{\mbox{y\hspace{-0.55pt}ı}}
@@ -717,12 +712,14 @@ const headerDetskiy = `\documentclass[%dpt]{book}
 \newcommand{\y}{y̆}
 \newcommand{\Y}{Y̆}
 
-\newcommand{\yf}{y̆}
+`
 
-\newcommand{\X}{X̹}
-\newcommand{\x}{x̹}
-\newcommand{\C}{C̹}
-\renewcommand{\c}{c̹}
+const charsSimplified = `\renewcommand{\e}{e}
+\renewcommand{\yi}{yi}
+\renewcommand{\ia}{ia}
+\renewcommand{\io}{io}
+\renewcommand{\y}{y}
+\renewcommand{\Y}{Y}
 
 `
 
