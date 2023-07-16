@@ -9,10 +9,9 @@ Sootvetstviye s cyrillic̹ey:
 | _x̹_  | _щ_ |
 | _y̆_  | _й_ |
 | _y_  | _ь_ |
-| _ıo_ | _ю_ |
 | _yı_ | _ы_ |
+| _ıo_ | _ю_ |
 | _ıa_ | _я_ |
-| _e_  | _э_ |
 | _ё_  | _ё_ |
 | _j_  | _ж_ |
 | _h_  | _х_ |
@@ -22,12 +21,12 @@ V ostalynom sootvetstviye standardnoye.
 Glasnyiye _ë_, _ıo_, _ıa_, _yı_ upotrebliayutsa tolyko posle soglasnyih.
 V otliciye ot ih cyrilliceskih ekvivalentov bukvyi _ë_, _ıo_, _ıa_ ispolyzuyutsa tolyko dlia oboznaceniya miagkosti predidux̹ih soglasnyih.
 V nacale slov i posle glasnyih pixem _y̆o_, _y̆u_, _y̆a_.
-Takje i bukva _e_ ne upotrebliayetsa v nacale slov i posle soglasnyih za redkimi isklioceniyami
+Takje i bukva _e_ ne upotrebliayetsa v nacale slov i posle glasnyih za redkimi isklioceniyami
 (_eto_, _poetomu_), vmesto etovo pixem _y̆e_.
 Bukva _ъ_ ne imeyet ekvivalenta vovse tak kak yeyo funkc̹iya ne trebuyetsa.
 Naprimer: y̆abloko, priy̆atnyıy̆, y̆olka, y̆ujnyıy̆, y̆esli, hozıay̆in, v zdaniy̆i, oty̆ehaty, oby̆om, vy̆uga. Boleye obyomnyiy primer ![1](/example.pdf).
 
-Dopuskayetsa sleduyux̹eye uprox̹onniye formyi:
+Dopuskayutsa sleduyux̹iye uprox̹onniye formyi:
 | ishodnaya | uprox̹onnaya  |
 | -  | -  |
 | y̆  | y  |
