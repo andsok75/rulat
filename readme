@@ -1,4 +1,0 @@
-Golang 1.18 and Tex Live 2023 are required.
-
-go run . -i vzroslyiy -f 10 -s > vzroslyiy.tex && xelatex vzroslyiy.tex
-go run . -i detskiy > detskiy.tex && xelatex detskiy.tex
