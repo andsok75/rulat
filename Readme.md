@@ -1,5 +1,4 @@
-
-Sootvetstviye s cyrillic̹ey:
+## Sootvetstviye s cyrillic̹ey
 
 | latinic̹a | cyrillic̹a |
 | - | - |
@@ -24,7 +23,9 @@ V nacale slov i posle glasnyih pixem _y̆o_, _y̆u_, _y̆a_.
 Takje i bukva _e_ ne upotrebliayetsa v nacale slov i posle glasnyih za redkimi isklioceniyami
 (_eto_, _poetomu_), vmesto etovo pixem _y̆e_.
 Bukva _ъ_ ne imeyet ekvivalenta vovse tak kak yeyo funkc̹iya ne trebuyetsa.
-Naprimer: y̆abloko, priy̆atnyıy̆, y̆olka, y̆ujnyıy̆, y̆esli, hozıay̆in, v zdaniy̆i, oty̆ehaty, oby̆om, vy̆uga. Boleye obyomnyiy primer ![1](/example.pdf).
+Naprimer: _y̆abloko_, _priy̆atnyıy̆_, _y̆olka_, _y̆ujnyıy̆_, _y̆esli_, _hozıay̆in_, _v zdaniy̆i_, _oty̆ehaty_, _oby̆om_, _vy̆uga_. Boleye obyomnyiy primer ![1](/starobinets.pdf).
+
+## Uprox̹onniye formyi
 
 Dopuskayutsa sleduyux̹iye uprox̹onniye formyi:
 | ishodnaya | uprox̹onnaya  |
@@ -43,11 +44,18 @@ s
 
 > Pod kopyita moyey loxadi brosilsa nix̹iy, vopia, cto griadet konec̹ sveta i ya doljen pokayatsa i otdaty yemu vse denygi. Odnako, poniav, cto ya ne otlicayusy osoboy nabojnostyu, on tut je zabyil obo mne i pristal k dvum dorodnyim kupc̹am, kotoryiye byili neskolyko perepuganyi tem bezumiyem, cto proishodilo vokrug.
 
-Boleye obyomnyiy primer ![2](/example_simplified.pdf).
+Boleye obyomnyiy primer ![2](/pehov.pdf).
+
+## Istocniki primerov
+
+- 1: otryivok iz _Anna Starobinets ``X̹ipac''_
+- 2: otryivok iz _Aleksey Pehov ``Zolotyiye kostryi''_
+
+## Techniceskiye detali
 
 Oba primera sdelanyi s ispolyzovaniyem Golang 1.18 and Tex Live 2023.
 
 ```
-go run . -i example > example.tex && xelatex example.tex
-go run . -i example_simplified -f 10 -s > example_simplified.tex && xelatex example_simplified.tex
+go run . -i starobinets > starobinets.tex && xelatex starobinets.tex
+go run . -i pehov -f 10 -s > pehov.tex && xelatex pehov.tex
 ```
