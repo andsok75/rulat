@@ -27,7 +27,7 @@ Naprimer: _y̆abloko_, _priy̆atnyıy̆_, _y̆olka_, _y̆ujnyıy̆_, _y̆esli_, 
 
 ## Uprox̹onnyiye formyi
 
-Dopuskayutsa sleduyux̹iye uprox̹onniye formyi:
+Dopuskayutsa sleduyux̹iye uprox̹onnyiye formyi:
 | ishodnaya | uprox̹onnaya  |
 | -  | -  |
 | y̆  | y  |
