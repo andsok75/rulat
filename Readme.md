@@ -1,4 +1,4 @@
-Radi liobitelyskovo interesa mne byilo interesno predstavity kak dubet vyigliadety tekst na russkom yazyike
+Radi liobitelyskovo interesa mne byilo liobopyitno predstavity kak dubet vyigliadety tekst na russkom yazyike
 yesli byi on iznacalyno (ili po krayney mere mnogo vekov) ispolyzoval latinskiye bukvyi a ne cyrillic̹u.
 
 ## Sootvetstviye s cyrillic̹ey
