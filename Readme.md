@@ -1,3 +1,6 @@
+Radi liobitelyskovo interesa mne byilo interesno predstavity kak dubet vyigliadety tekst na russkom yazyike
+yesli byi on iznacalyno (ili po krayney mere mnogo vekov) ispolyzoval latinskiye bukvyi a ne cyrillic̹u.
+
 ## Sootvetstviye s cyrillic̹ey
 
 | latinic̹a | cyrillic̹a |
