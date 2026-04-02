@@ -30,7 +30,7 @@ Naprimer: _y̆abloko_, _priy̆atnyıy̆_, _y̆olka_, _y̆ujnyıy̆_, _y̆esli_, 
 
 ## Modifikac̹iya
 Dopuskayetsa modifikac̹iya:
-| v1 | v2 |
+| ishodnyiy | modific̹irovannyiy |
 | - | - |
 | _ıo_ | _ú_ |
 | _ıa_ | _á_ |
