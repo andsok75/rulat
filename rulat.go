@@ -12,10 +12,12 @@ import (
 func main() {
 	var inputName string
 	var simplified bool
+	var modified bool
 	var fontSize int
 
 	flag.StringVar(&inputName, "i", "-", "Input file name")
 	flag.BoolVar(&simplified, "s", false, "Use simplified characters")
+	flag.BoolVar(&modified, "m", false, "Use modified characters")
 	flag.IntVar(&fontSize, "f", 12, "Font size")
 	flag.Parse()
 
@@ -38,6 +40,9 @@ func main() {
 	fmt.Print(chars)
 	if simplified {
 		fmt.Print(charsSimplified)
+	}
+	if modified {
+		fmt.Print(charsModified)
 	}
 
 	for _, item := range items {
@@ -565,6 +570,7 @@ func hyphenation() map[string]string {
 		"diavolyskih":               "diavoly\\-skih",
 		"dogadalisy":                "do\\-ga\\-da\\-lisy",
 		"doroge":                    "do\\-ro\\-ge",
+		"dorogu":                    "do\\-ro\\-gu",
 		"dover{\\ia}ty":             "dove\\-r{\\ia}ty",
 		"dovolen":                   "do\\-vo\\-len",
 		"glazami":                   "glaza\\-mi",
@@ -578,11 +584,13 @@ func hyphenation() map[string]string {
 		"ime{\\y}etsa":              "ime\\-{\\y}et\\-sa",
 		"isceznoveni{\\y}a":         "iscez\\-no\\-ve\\-ni\\-{\\y}a",
 		"izurodovann{\\yi}m":        "izu\\-ro\\-do\\-van\\-n{\\yi}m",
+		"jivu{\\x}a{\\y}a":          "ji\\-vu\\-{\\x}a\\-{\\y}a",
 		"kollek{\\c}ioner":          "kollek\\-{\\c}ioner",
 		"kotor{\\yi}mi":             "ko\\-to\\-r{\\yi}\\-mi",
 		"kotor{\\yi}{\\y}e":         "ko\\-to\\-r{\\yi}\\-{\\y}e",
 		"kozlin{\\yi}mi":            "kozlin{\\yi}\\-mi",
 		"krupn{\\yi}mi":             "krup\\-n{\\yi}\\-mi",
+		"li{\\c}ezreni{\\y}em":      "li\\-{\\c}e\\-zre\\-ni\\-{\\y}em",
 		"loxadymi":                  "lo\\-xady\\-mi",
 		"malenyki{\\y}":             "ma\\-leny\\-ki{\\y}",
 		"mertve{\\c}om":             "mer\\-tve\\-{\\c}om",
@@ -608,6 +616,7 @@ func hyphenation() map[string]string {
 		"ognenn{\\yi}{\\y}":         "ognen\\-n{\\yi}{\\y}",
 		"ogromn{\\yi}m":             "ogrom\\-n{\\yi}m",
 		"organizovann{\\yi}{\\y}":   "organi\\-zo\\-van\\-n{\\yi}{\\y}",
+		"opasn{\\yi}":               "opas\\-n{\\yi}",
 		"ostavxevosa":               "ostav\\-xe\\-vosa",
 		"osu{\\x}estvili":           "osu\\-{\\x}estvi\\-li",
 		"Otpravl{\\ia}{\\y}tesy":    "Ot\\-prav\\-l{\\ia}{\\y}\\-tesy",
@@ -621,6 +630,7 @@ func hyphenation() map[string]string {
 		"pogovority":                "po\\-go\\-vo\\-rity",
 		"pokrovitelystvom":          "po\\-kro\\-vi\\-tely\\-stvom",
 		"pome{\\x}eni{\\y}e":        "po\\-me\\-{\\x}e\\-ni\\-{\\y}e",
+		"ponima{\\y}u{\\x}e{\\y}":   "po\\-ni\\-ma\\-{\\y}u\\-{\\x}e{\\y}",
 		"poslani{\\y}e":             "po\\-sla\\-ni\\-{\\y}e",
 		"po{\\y}avl{\\ia}lsa":       "po\\-{\\y}av\\-l{\\ia}l\\-sa",
 		"poznakomilsa":              "po\\-znako\\-mil\\-sa",
@@ -633,6 +643,7 @@ func hyphenation() map[string]string {
 		"prixlosy":                  "pri\\-xlosy",
 		"prokl{\\ia}t{\\yi}h":       "pro\\-kl{\\ia}\\-t{\\yi}h",
 		"Propovednik":               "Pro\\-po\\-ved\\-nik",
+		"Propovednika":              "Pro\\-po\\-ved\\-nika",
 		"prot{\\ia}nula":            "pro\\-t{\\ia}\\-nu\\-la",
 		"prot{\\ia}nul":             "pro\\-t{\\ia}\\-nul",
 		"protivopolojnu{\\y}u":      "pro\\-ti\\-vo\\-po\\-loj\\-nu\\-{\\y}u",
@@ -683,9 +694,10 @@ func hyphenation() map[string]string {
 		"v{\\yi}polnity":            "v{\\yi}\\-pol\\-nity",
 		"v{\\yi}rezan{\\yi}":        "v{\\yi}\\-re\\-za\\-n{\\yi}",
 		"v{\\yi}sokovo":             "v{\\yi}\\-so\\-ko\\-vo",
+		"{\\y}az{\\yi}kami":         "{\\y}a\\-z{\\yi}\\-ka\\-mi",
 		"zat{\\yi}lke":              "za\\-t{\\yi}l\\-ke",
 		"zna{\\y}ex":                "zna\\-{\\y}ex",
-		"zvezdcat{\\yi}{\\y}":       "zvezdca\\-t{\\yi}{\\y}",
+		"zvezdcat{\\yi}{\\y}":       "zvezd\\-ca\\-t{\\yi}{\\y}",
 
 		"umol{\\ia}{\\y}u{\\x}e{\\y}e":       "umo\\-l{\\ia}\\-{\\y}u\\-{\\x}e\\-{\\y}e",
 		"st{\\ia}giva{\\y}u{\\x}i{\\y}e":     "st{\\ia}gi\\-va\\-{\\y}u\\-{\\x}i\\-{\\y}e",
@@ -718,6 +730,15 @@ const charsSimplified = `\renewcommand{\e}{e}
 \renewcommand{\yi}{yi}
 \renewcommand{\ia}{ia}
 \renewcommand{\io}{io}
+\renewcommand{\y}{y}
+\renewcommand{\Y}{Y}
+
+`
+
+const charsModified = `\renewcommand{\e}{e}
+\renewcommand{\yi}{yi}
+\renewcommand{\ia}{á}
+\renewcommand{\io}{ú}
 \renewcommand{\y}{y}
 \renewcommand{\Y}{Y}
 

@@ -1,5 +1,5 @@
-Radi liobitelyskovo interesa mne byilo liobopyitno predstavity kak dubet vyigliadety tekst na russkom yazyike
-yesli byi on iznacalyno (ili po krayney mere mnogo vekov) ispolyzoval latinskiye bukvyi a ne cyrillic̹u.
+Liobopyitno predstavity kak dubet vyigliadety tekst na russkom yazyike
+yesli byi on iznacalyno ispolyzoval latinskiye bukvyi a ne cyrillic̹u.
 
 ## Sootvetstviye s cyrillic̹ey
 
@@ -28,6 +28,23 @@ Takje i bukva _e_ ne upotrebliayetsa v nacale slov i posle glasnyih za redkimi i
 Bukva _ъ_ ne imeyet ekvivalenta vovse tak kak yeyo funkc̹iya ne trebuyetsa.
 Naprimer: _y̆abloko_, _priy̆atnyıy̆_, _y̆olka_, _y̆ujnyıy̆_, _y̆esli_, _hozıay̆in_, _v zdaniy̆i_, _oty̆ehaty_, _oby̆om_, _vy̆uga_. Boleye obyomnyiy primer ![1](/starobinets.pdf).
 
+## Variantyi
+
+| v1 | v2 | v3 |
+| - | - | - |
+| _c_  | _c_ | _c_  |
+| _c̹_  | _c̹_ | _c̹_  |
+| _x_  | _x_ | _x_  |
+| _x̹_  | _x̹_ | _x̹_  |
+| _y̆_  | _y̆_ | _y̆_  |
+| _y_  | _y_ | _y_  |
+| _yı_ | _yı_ | _yı_ |
+| _ıo_ | _ıu_ | _ú_ |
+| _ıa_ | _ıa_ | _á_ |
+| _ё_  | _ıo_ | _ó_  |
+| _j_  | _j_ | _j_  |
+| _h_  | _h_ | _h_  |
+
 ## Uprox̹onnyiye formyi
 
 Dopuskayutsa sleduyux̹iye uprox̹onnyiye formyi:
@@ -37,6 +54,7 @@ Dopuskayutsa sleduyux̹iye uprox̹onnyiye formyi:
 | ë  | e  |
 | ıa | ia |
 | ıo | io |
+| ıu | iu |
 | yı | yi |
 
 Naprimer, sravnite
@@ -61,4 +79,5 @@ Oba primera sdelanyi s ispolyzovaniyem Golang 1.18 and Tex Live 2023.
 ```
 go run . -i starobinets > starobinets.tex && xelatex starobinets.tex
 go run . -i pehov -f 10 -s > pehov.tex && xelatex pehov.tex
+go run . -i pehov -f 10 -m > pehov_m.tex && xelatex pehov_m.tex
 ```
