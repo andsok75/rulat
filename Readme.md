@@ -28,26 +28,16 @@ Takje i bukva _e_ ne upotrebliayetsa v nacale slov i posle glasnyih za redkimi i
 Bukva _ъ_ ne imeyet ekvivalenta vovse tak kak yeyo funkc̹iya ne trebuyetsa.
 Naprimer: _y̆abloko_, _priy̆atnyıy̆_, _y̆olka_, _y̆ujnyıy̆_, _y̆esli_, _hozıay̆in_, _v zdaniy̆i_, _oty̆ehaty_, _oby̆om_, _vy̆uga_. Boleye obyomnyiy primer ![1](/starobinets.pdf).
 
-## Variantyi
-
-| v1 | v2 | v3 |
-| - | - | - |
-| _c_  | _c_ | _c_  |
-| _c̹_  | _c̹_ | _c̹_  |
-| _x_  | _x_ | _x_  |
-| _x̹_  | _x̹_ | _x̹_  |
-| _y̆_  | _y̆_ | _y̆_  |
-| _y_  | _y_ | _y_  |
-| _yı_ | _yı_ | _yı_ |
-| _ıo_ | _ıu_ | _ú_ |
-| _ıa_ | _ıa_ | _á_ |
-| _ё_  | _ıo_ | _ó_  |
-| _j_  | _j_ | _j_  |
-| _h_  | _h_ | _h_  |
+## Modifikac̹iya
+Dopuskayetsa modifikac̹iya:
+| v1 | v2 |
+| - | - |
+| _ıo_ | _ú_ |
+| _ıa_ | _á_ |
 
 ## Uprox̹onnyiye formyi
 
-Dopuskayutsa sleduyux̹iye uprox̹onnyiye formyi:
+Dopuskayutsa uprox̹onnyiye formyi:
 | ishodnaya | uprox̹onnaya  |
 | -  | -  |
 | y̆  | y  |
@@ -65,7 +55,7 @@ s
 
 > Pod kopyita moyey loxadi brosilsa nix̹iy, vopia, cto griadet konec̹ sveta i ya doljen pokayatsa i otdaty yemu vse denygi. Odnako, poniav, cto ya ne otlicayusy osoboy nabojnostyu, on tut je zabyil obo mne i pristal k dvum dorodnyim kupc̹am, kotoryiye byili neskolyko perepuganyi tem bezumiyem, cto proishodilo vokrug.
 
-Boleye obyomnyiy primer ![2](/pehov.pdf).
+Boleye obyomnyiy primer ![2](/pehov.pdf) i evo modifikac̹iya ![3](/pehov_m.pdf).
 
 ## Istocniki primerov
 
