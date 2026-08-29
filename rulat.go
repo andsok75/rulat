@@ -12,12 +12,12 @@ import (
 func main() {
 	var inputName string
 	var simplified bool
-	var modified bool
+	var dotted bool
 	var fontSize int
 
 	flag.StringVar(&inputName, "i", "-", "Input file name")
 	flag.BoolVar(&simplified, "s", false, "Use simplified characters")
-	flag.BoolVar(&modified, "m", false, "Use modified characters")
+	flag.BoolVar(&dotted, "d", false, "Use dotted i characters")
 	flag.IntVar(&fontSize, "f", 12, "Font size")
 	flag.Parse()
 
@@ -41,8 +41,8 @@ func main() {
 	if simplified {
 		fmt.Print(charsSimplified)
 	}
-	if modified {
-		fmt.Print(charsModified)
+	if dotted {
+		fmt.Print(charsDotted)
 	}
 
 	for _, item := range items {
@@ -716,31 +716,26 @@ const chars = `\newcommand{\X}{X̹}
 \newcommand{\x}{x̹}
 \newcommand{\C}{C̹}
 \renewcommand{\c}{c̹}
+\newcommand{\iopick}{u}
 
 \newcommand{\e}{ë}
 \newcommand{\yi}{\mbox{y\hspace{-0.55pt}ı}}
 \newcommand{\ia}{\mbox{ı\hspace{-0.55pt}a}}
-\newcommand{\io}{\mbox{ı\hspace{-0.55pt}o}}
+\newcommand{\io}{\mbox{ı\hspace{-0.55pt}\iopick}}
 \newcommand{\y}{y̆}
 \newcommand{\Y}{Y̆}
 
 `
 
 const charsSimplified = `\renewcommand{\e}{e}
-\renewcommand{\yi}{yi}
-\renewcommand{\ia}{ia}
-\renewcommand{\io}{io}
 \renewcommand{\y}{y}
 \renewcommand{\Y}{Y}
 
 `
 
-const charsModified = `\renewcommand{\e}{e}
-\renewcommand{\yi}{yi}
-\renewcommand{\ia}{á}
-\renewcommand{\io}{ú}
-\renewcommand{\y}{y}
-\renewcommand{\Y}{Y}
+const charsDotted = `\renewcommand{\yi}{yi}
+\renewcommand{\ia}{ia}
+\renewcommand{\io}{i\iopick}
 
 `
 

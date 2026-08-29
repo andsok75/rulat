@@ -1,4 +1,4 @@
-Liobopyitno predstavity kak dubet vyigliadety tekst na russkom yazyike
+Liubopyitno predstavity kak dubet vyigliadety tekst na russkom yazyike
 yesli byi on iznacalyno ispolyzoval latinskiye bukvyi a ne cyrillic̹u.
 
 ## Sootvetstviye s cyrillic̹ey
@@ -12,7 +12,7 @@ yesli byi on iznacalyno ispolyzoval latinskiye bukvyi a ne cyrillic̹u.
 | _y̆_  | _й_ |
 | _y_  | _ь_ |
 | _yı_ | _ы_ |
-| _ıo_ | _ю_ |
+| _ıu_ (_ıo_) | _ю_ |
 | _ıa_ | _я_ |
 | _ё_  | _ё_ |
 | _j_  | _ж_ |
@@ -20,20 +20,14 @@ yesli byi on iznacalyno ispolyzoval latinskiye bukvyi a ne cyrillic̹u.
 
 V ostalynom sootvetstviye standardnoye.
 
-Glasnyiye _ë_, _ıo_, _ıa_, _yı_ upotrebliayutsa tolyko posle soglasnyih.
-V otliciye ot ih cyrilliceskih ekvivalentov bukvyi _ë_, _ıo_, _ıa_ ispolyzuyutsa tolyko dlia oboznaceniya miagkosti predidux̹ih soglasnyih.
+Glasnyiye _ë_, _ıu_, _ıa_, _yı_ upotrebliayutsa tolyko posle soglasnyih.
+V otliciye ot ih cyrilliceskih ekvivalentov bukvyi _ë_, _ıu_, _ıa_ ispolyzuyutsa tolyko dlia oboznaceniya miagkosti predidux̹ih soglasnyih.
 V nacale slov i posle glasnyih pixem _y̆o_, _y̆u_, _y̆a_.
-Takje i bukva _e_ ne upotrebliayetsa v nacale slov i posle glasnyih za redkimi isklioceniyami
+Takje i bukva _e_ ne upotrebliayetsa v nacale slov i posle glasnyih za redkimi iskliuceniyami
 (_eto_, _poetomu_), vmesto etovo pixem _y̆e_.
 Bukva _ъ_ ne imeyet ekvivalenta vovse tak kak yeyo funkc̹iya ne trebuyetsa.
 Naprimer: _y̆abloko_, _priy̆atnyıy̆_, _y̆olka_, _y̆ujnyıy̆_, _y̆esli_, _hozıay̆in_, _v zdaniy̆i_, _oty̆ehaty_, _oby̆om_, _vy̆uga_. Boleye obyomnyiy primer ![1](/starobinets.pdf).
 
-## Modifikac̹iya
-Dopuskayetsa modifikac̹iya:
-| ishodnyiy | modific̹irovannyiy |
-| - | - |
-| _ıo_ | _ú_ |
-| _ıa_ | _á_ |
 
 ## Uprox̹onnyiye formyi
 
@@ -43,8 +37,7 @@ Dopuskayutsa uprox̹onnyiye formyi:
 | y̆  | y  |
 | ë  | e  |
 | ıa | ia |
-| ıo | io |
-| ıu | iu |
+| ıu (ıo) | iu (io) |
 | yı | yi |
 
 Naprimer, sravnite
@@ -55,7 +48,7 @@ s
 
 > Pod kopyita moyey loxadi brosilsa nix̹iy, vopia, cto griadet konec̹ sveta i ya doljen pokayatsa i otdaty yemu vse denygi. Odnako, poniav, cto ya ne otlicayusy osoboy nabojnostyu, on tut je zabyil obo mne i pristal k dvum dorodnyim kupc̹am, kotoryiye byili neskolyko perepuganyi tem bezumiyem, cto proishodilo vokrug.
 
-Boleye obyomnyiy primer ![2](/pehov.pdf) i yevo modifikac̹iya ![3](/pehov_m.pdf).
+Boleye obyomnyiy primer ![2](/pehov.pdf) a takje ![3](/pehov_i.pdf) s uprox̹onnoy i.
 
 ## Istocniki primerov
 
@@ -68,6 +61,5 @@ Oba primera sdelanyi s ispolyzovaniyem Golang 1.18 and Tex Live 2023.
 
 ```
 go run . -i starobinets > starobinets.tex && xelatex starobinets.tex
-go run . -i pehov -f 10 -s > pehov.tex && xelatex pehov.tex
-go run . -i pehov -f 10 -m > pehov_m.tex && xelatex pehov_m.tex
+go run . -i pehov -f 10 -s -d > pehov.tex && xelatex pehov.tex
 ```
