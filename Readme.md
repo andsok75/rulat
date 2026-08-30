@@ -48,7 +48,7 @@ s
 
 > Pod kopyita moyey loxadi brosilsa nix̹iy, vopia, cto griadet konec̹ sveta i ya doljen pokayatsa i otdaty yemu vse denygi. Odnako, poniav, cto ya ne otlicayusy osoboy nabojnostyu, on tut je zabyil obo mne i pristal k dvum dorodnyim kupc̹am, kotoryiye byili neskolyko perepuganyi tem bezumiyem, cto proishodilo vokrug.
 
-Boleye obyomnyiy primer ![2](/pehov.pdf) a takje ![3](/pehov_i.pdf) s uprox̹onnoy i.
+Boleye obyomnyiy primer ![2](/pehov.pdf).
 
 ## Istocniki primerov
 
