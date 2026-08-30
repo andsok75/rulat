@@ -63,7 +63,7 @@ func item2string(item Item) string {
 		case "«":
 			return "``"
 		case "»":
-			return "\""
+			return "''"
 		default:
 			return item.content
 		}

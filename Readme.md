@@ -60,6 +60,6 @@ Boleye obyomnyiy primer ![2](/pehov.pdf) a takje ![3](/pehov_i.pdf) s uprox̹onn
 Oba primera sdelanyi s ispolyzovaniyem Golang 1.18 and Tex Live 2023.
 
 ```
-go run . -i starobinets > starobinets.tex && xelatex starobinets.tex
-go run . -i pehov -f 10 -s -d > pehov.tex && xelatex pehov.tex
+go run . -i starobinets.txt > starobinets.tex && xelatex starobinets.tex
+go run . -i pehov.txt -f 10 -s -d > pehov.tex && xelatex pehov.tex
 ```
