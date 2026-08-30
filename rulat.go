@@ -29,9 +29,13 @@ func main() {
 			log.Fatal(err)
 		}
 	}
-	content, err := io.ReadAll(input)
+	originalContent, err := io.ReadAll(input)
 	if err != nil {
 		log.Fatal(err)
+	}
+	content := string(originalContent)
+	for multiword, sub := range multiwordExceptions() {
+		content = strings.ReplaceAll(string(content), multiword, sub)
 	}
 
 	items := getItems(string(content))
@@ -317,7 +321,7 @@ func isVowel(c string) bool {
 	}
 }
 
-func isWord(c string) bool {
+func isWordChar(c string) bool {
 	switch c {
 	case "-":
 		fallthrough
@@ -351,7 +355,7 @@ func getItems(s string) []Item {
 	word := ""
 	for _, r := range s {
 		c := string(r)
-		if isWord(c) {
+		if isWordChar(c) {
 			word = word + c
 			continue
 		}
@@ -452,8 +456,8 @@ func exceptions() map[string]string {
 		"альбаландских":  "albalandskih",
 		"альбаландцев":   "albaland{\\c}ev",
 		"Барбурге":       "Warburge",
-		"Бробергер":      "Wroberger",
-		"Бробергера":     "Wrobergera",
+		"Бробергер":      "Broberger",
+		"Бробергера":     "Brobergera",
 		"Валентин":       "Valentin",
 		"Валентина":      "Valentina",
 		"Вальтер":        "Walter",
@@ -480,7 +484,6 @@ func exceptions() map[string]string {
 		"каликвеца":      "kallikve{\\c}a",
 		"каликвецев":     "kallikve{\\c}ev",
 		"Каликвецы":      "Kallikve{\\c}i",
-		"Клеменз":        "Clemence",
 		"Крусо":          "Caruso",
 		"Лавендуззского": "Lavendusskovo",
 		"Лезерберг":      "Leserberg",
@@ -505,7 +508,6 @@ func exceptions() map[string]string {
 		"Селико":         "Selico",
 		"Травинно":       "Travino",
 		"Уг":             "Ug",
-		"Фабьен":         "Fabien",
 		"Филипп":         "Philipp",
 		"Филиппом":       "Philippom",
 		"Филиппу":        "Philippu",
@@ -553,6 +555,13 @@ func exceptions() map[string]string {
 		"чувствовал":    "custvoval",
 		"чувствовала":   "custvovala",
 		"чувствуя":      "custvu{\\y}a",
+	}
+}
+
+func multiwordExceptions() map[string]string {
+	return map[string]string{
+		"«Фабьен Клеменз и сыновья»": "``Fabian Clemenz \\& Söhne''",
+		"«Фабьен Клеменз»":           "``Fabian Clemenz''",
 	}
 }
 
